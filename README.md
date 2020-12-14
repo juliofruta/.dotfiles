@@ -1,2 +1,9 @@
-# .dotfiles
- a program that will move my configuration between computers
+# dotfiles
+
+## 🚀 Installation
+
+Execute the [`installer`](installer) from your terminal.
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/juliopge/.dotfiles/main/installer)
+```
