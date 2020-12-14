@@ -1,7 +1,8 @@
 
 #!/usr/bin/env bash
 
-#set -euo pipefail
+# Quit program if any command fails
+set -euo pipefail
 
 echo "🚀 Welcome to the dotfile finstaller!"
 echo "-------------------------------------------------"
@@ -11,7 +12,6 @@ echo "👉  Cloning into: '$DOTFILES_PATH'"
 
 # To test that git is installed (if not macOS will prompt an installer)
 git --version
-
 git clone --depth 1 git@github.com:juliopge/.dotfiles.git "$DOTFILES_PATH"
 
 # Install Oh my zsh!
@@ -19,31 +19,11 @@ if [ ! -d "$HOME/.oh-my-zsh" ]
 then
     echo "♦️ Installing Oh My Zsh!"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    
 else
-    echo "Oh my zsh! is already installed."
+    echo "✅ Oh my zsh! is already installed."
 fi
 
-# Clean brew
-# Remove brew and all it's packages
-echo "🧹 cleaning brew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
-
-# Install brew
-echo "♦️ Installing brew"
-which -s brew
-if [[ $? != 0 ]] ; then
-    # Install Homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-else
-    echo "Brew is already installed."
-fi
-
-# Apply code and cask fix.
-# git -C "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core" fetch --unshallow
-# git -C "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask" fetch --unshallow
-
-
-echo "running brew bundle --file $HOME/.dotfiles/Brewfile"
-brew bundle --file $HOME/.dotfiles/Brewfile
+ln -s $DOTFILES_PATH/zsh/.zshrc $HOME/.zsh #Link zsh.
 
 echo "🦄 finished without any errors"
