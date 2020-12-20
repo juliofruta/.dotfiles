@@ -12,8 +12,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-installOhMyZshIfNeeded()
-installZSHAutosuggestionsIfNeeded()
+installOhMyZshIfNeeded
+installZSHAutosuggestionsIfNeeded
 
 # https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
 export PATH="$PATH:$HOME/.rvm/bin"
