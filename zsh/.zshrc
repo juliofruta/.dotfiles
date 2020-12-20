@@ -12,9 +12,32 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+installOhMyZshIfNeeded()
+installZSHAutosuggestionsIfNeeded()
+
 # https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Install Oh my zsh!
+function installOhMyZshIfNeeded {
+    if [ ! -d "$HOME/.oh-my-zsh" ] 
+    then
+        echo "♦️ Installing Oh My Zsh!"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    else
+         echo "✅ Oh my zsh! is already installed."
+    fi
+}
+
+# Install zsh autosuggestions
+function installZSHAutosuggestionsIfNeeded {
+     if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]
+    then 
+         git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+     else 
+         echo "✅ Autosuggestions is already installed."
+     fi
+}
 
 # Takes all the Inspect PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
 # $1 - Github org
