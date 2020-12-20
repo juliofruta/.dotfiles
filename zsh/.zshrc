@@ -63,6 +63,11 @@ function installZSHAutosuggestionsIfNeeded {
      fi
 }
 
+function reinstallDotfiles {
+    rm -rf .dotfiles
+    bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
+}
+
 function installToolsIfNeeded() {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
@@ -79,11 +84,11 @@ plugins=(
     command-not-found
 )
 
+# https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
+export PATH="$PATH:$HOME/.rvm/bin"
+
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 installToolsIfNeeded
