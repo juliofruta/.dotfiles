@@ -55,12 +55,12 @@ function installOhMyZshIfNeeded {
 
 # Install zsh autosuggestions
 function installZSHAutosuggestionsIfNeeded {
-     if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]
+    if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]
     then 
-         git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-     else 
-         echo "✅ Autosuggestions is already installed."
-     fi
+        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    else 
+        echo "✅ Autosuggestions is already installed."
+    fi
 }
 
 function updateiTerm2DynamicProfiles {
