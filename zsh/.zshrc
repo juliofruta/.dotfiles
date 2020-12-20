@@ -1,3 +1,8 @@
+# https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
+export PATH="$PATH:$HOME/.rvm/bin"
+export DOTFILES_PATH="$HOME/.dotfiles"
+export ZSH="$HOME/.oh-my-zsh"
+
 # Takes all the Inspect PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
 # $1 - Github org
 # $2 - Github repo
@@ -91,10 +96,6 @@ plugins=(
     command-not-found
 )
 
-# https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
-export PATH="$PATH:$HOME/.rvm/bin"
-export DOTFILES_PATH="$HOME/.dotfiles"
-export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
