@@ -24,6 +24,9 @@ else
     echo "✅ Oh my zsh! is already installed."
 fi
 
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# The plugin is already in the zsh config.
 ln -s $DOTFILES_PATH/zsh/.zshrc $HOME/.zsh #Link zsh.
 
 echo "🦄 finished without any errors"
