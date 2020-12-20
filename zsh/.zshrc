@@ -65,7 +65,7 @@ function installZSHAutosuggestionsIfNeeded {
 
 function updateiTerm2DynamicProfiles {
     # set iterm profiles
-    mv $DOTFILES_PATH/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json
+    mv $DOTFILES_PATH/iterm/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json
 }
 
 function updateDotfiles {
@@ -93,7 +93,7 @@ plugins=(
 
 # https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
 export PATH="$PATH:$HOME/.rvm/bin"
-
+export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
