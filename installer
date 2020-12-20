@@ -34,6 +34,6 @@ fi
 
 
 # The plugin is already in the zsh config.
-ln -s $DOTFILES_PATH/zsh/.zshrc $HOME/.zsh #Link zsh.
+ln -s -F $DOTFILES_PATH/zsh/.zshrc $HOME/.zsh #Link zsh.
 
 echo "🦄 finished without any errors"
