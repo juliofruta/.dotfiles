@@ -83,6 +83,7 @@ function installToolsIfNeeded {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
     updateiTerm2DynamicProfiles
+    echo "🦄"
 }
 
 plugins=(
