@@ -63,7 +63,7 @@ function installZSHAutosuggestionsIfNeeded {
      fi
 }
 
-function reinstallDotfiles {
+function updateDotfiles {
     rm -rf .dotfiles
     bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
     zsh
