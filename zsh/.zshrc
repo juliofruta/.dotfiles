@@ -76,7 +76,6 @@ function updateiTerm2DynamicProfiles {
 function updateDotfiles {
     rm -rf .dotfiles
     bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
-    zsh
 }
 
 function installToolsIfNeeded {
@@ -99,4 +98,4 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-installToolsIfNeeded
+updateDotfiles
