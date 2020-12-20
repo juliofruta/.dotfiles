@@ -63,6 +63,11 @@ function installZSHAutosuggestionsIfNeeded {
      fi
 }
 
+function updateiTerm2DynamicProfiles() {
+    # set iterm profiles
+    mv $DOTFILES_PATH/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json
+}
+
 function updateDotfiles {
     rm -rf .dotfiles
     bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
@@ -72,6 +77,7 @@ function updateDotfiles {
 function installToolsIfNeeded() {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
+    updateiTerm2DynamicProfiles
 }
 
 plugins=(
