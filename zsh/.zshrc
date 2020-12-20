@@ -54,7 +54,7 @@ function installOhMyZshIfNeeded {
         echo "♦️ Installing Oh My Zsh!"
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     else
-         echo "✅ Oh my zsh! is already installed."
+         echo "✅ Oh my zsh! is installed."
     fi
 }
 
@@ -64,13 +64,13 @@ function installZSHAutosuggestionsIfNeeded {
     then 
         git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     else 
-        echo "✅ Autosuggestions is already installed."
+        echo "✅ Autosuggestions is installed."
     fi
 }
 
 function updateiTerm2DynamicProfiles {
     # set iterm profiles
-    cp $DOTFILES_PATH/iterm/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json && echo "✅ Updated iterm profiles"
+    cp $DOTFILES_PATH/iterm/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json && echo "✅ iTerm profiles updated"
 }
 
 function updateDotfiles {
