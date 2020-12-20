@@ -85,7 +85,7 @@ function installToolsIfNeeded {
     updateiTerm2DynamicProfiles
 }
 
-Function changePrompt {
+function changePrompt {
     export PS1="🦄 %1d \$ "
 }
 
