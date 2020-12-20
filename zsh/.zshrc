@@ -65,7 +65,7 @@ function installZSHAutosuggestionsIfNeeded {
 
 function updateiTerm2DynamicProfiles {
     # set iterm profiles
-    mv $DOTFILES_PATH/iterm/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json
+    mv $DOTFILES_PATH/iterm/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json && echo "✅ Updated iterm profiles"
 }
 
 function updateDotfiles {
