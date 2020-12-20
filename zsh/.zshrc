@@ -1,22 +1,3 @@
-export ZSH="$HOME/.oh-my-zsh"
-plugins=(
-    git
-    dnf
-    pass
-    zsh-autosuggestions
-    osx
-    web-search
-    xcode
-    command-not-found
-)
-source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-
-# https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # Install Oh my zsh!
 function installOhMyZshIfNeeded {
     if [ ! -d "$HOME/.oh-my-zsh" ] 
@@ -86,5 +67,23 @@ function installToolsIfNeeded() {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
 }
+
+plugins=(
+    git
+    dnf
+    pass
+    zsh-autosuggestions
+    osx
+    web-search
+    xcode
+    command-not-found
+)
+
+export ZSH="$HOME/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
+export PATH="$PATH:$HOME/.rvm/bin"
 
 installToolsIfNeeded
