@@ -16,13 +16,13 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$PATH:$HOME/.rvm/bin"
 
 
-# Takes all the Inspect PR titles between commitA ($1) and commitB ($2) and prints them on the stdout 
-# $1 - CommitA
-# $2 - CommitB
-# $3 - Github org
-# $4 - Github repo
-function inspectprs { 
-    git log --oneline $1...$2 | ggrep -oP '#\K[0-9]*' | xargs -I _ sh -c "gh pr view _ --repo $3/$4 | head -n 1" 
+# Takes all the Inspect PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
+# $1 - Github org
+# $2 - Github repo
+# $3 - CommitA
+# $4 - CommitB
+function prtitles { 
+    git log --oneline $3...$4 | ggrep -oP '#\K[0-9]*' | xargs -I _ sh -c "gh pr view _ --repo $1/$2 | head -n 1" 
 }
 
 # Review a PR -- consider that this will get rid of all your current changes. and stash them.
