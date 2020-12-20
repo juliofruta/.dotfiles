@@ -89,6 +89,10 @@ function changePrompt {
     export PS1="🦄 %1d \$ "
 }
 
+function showUnicorn {
+    cat $DOTFILES_PATH/zsh/unicorn.ans
+}
+
 plugins=(
     git
     dnf
@@ -103,5 +107,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+showUnicorn
 installToolsIfNeeded
 changePrompt
