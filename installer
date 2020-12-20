@@ -17,7 +17,4 @@ git clone --depth 1 git@github.com:juiiocesar/.dotfiles.git "$DOTFILES_PATH"
 # The plugin is already in the zsh config.
 ln -s -F $DOTFILES_PATH/zsh/.zshrc $HOME/.zsh #Link zsh.
 
-# set iterm profiles
-mv $DOTFILES_PATH/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json
-
 echo "🦄 finished without any errors"
