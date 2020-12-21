@@ -74,6 +74,14 @@ function updateiTerm2DynamicProfiles {
     fi
 }
 
+# Install syntax highlightning
+function installSyntaxHighlighting {
+    if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]
+    then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    fi
+}
+
 function updateDotfiles {
     rm -rf .dotfiles
     bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
@@ -82,6 +90,7 @@ function updateDotfiles {
 function installToolsIfNeeded {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
+    installSyntaxHighlighting
     updateiTerm2DynamicProfiles
 }
 
