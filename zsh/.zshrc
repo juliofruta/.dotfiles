@@ -111,6 +111,7 @@ plugins=(
     dnf
     pass
     zsh-autosuggestions
+    zsh-syntax-highlighting
     osx
     web-search
     xcode
