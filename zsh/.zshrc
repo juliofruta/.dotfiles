@@ -93,6 +93,10 @@ function showUnicorn {
     cat $DOTFILES_PATH/zsh/unicorn.ans
 }
 
+function linkConfigurationFiles {
+    ln -s -F $DOTFILES_PATH/tmux/.tmux.config $HOME/.tmux.config #Link zsh.
+} 
+
 plugins=(
     git
     dnf
@@ -107,7 +111,10 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
+
 clear
 showUnicorn
 installToolsIfNeeded
 changePrompt
+linkConfigurationFiles
