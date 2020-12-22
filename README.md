@@ -42,3 +42,12 @@ Execute the [`installer`](installer) from your terminal.
 bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 ```
 
+## 🤖 Features
+
+= Nice unicorn 🦄
+- Code review utils
+- Bash autocompletion
+- bash coloring
+- iTerm dynamic profile configuration
+
+
