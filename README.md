@@ -44,10 +44,8 @@ bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/insta
 
 ## 🤖 Features
 
-= Nice unicorn 🦄
-- Code review utils
-- Bash autocompletion
-- bash coloring
-- iTerm dynamic profile configuration
+- Nice unicorn 🦄
+- my zsh config
+- my iterm config
 
 
