@@ -104,6 +104,7 @@ function showUnicorn {
 
 function linkConfigurationFiles {
     ln -s -F $DOTFILES_PATH/tmux/.tmux.conf $HOME/.tmux.conf #Link zsh.
+    ln -s -F $DOTFILES_PATH/vim/.vimrc $HOME/.vimrc #Link vim config
 } 
 
 plugins=(
