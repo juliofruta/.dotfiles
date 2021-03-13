@@ -15,6 +15,6 @@ git --version
 git clone --depth 1 git@github.com:juiiocesar/.dotfiles.git "$DOTFILES_PATH"
 
 # The plugin is already in the zsh config.
-ln -s -F $DOTFILES_PATH/zsh/.zshrc $HOME/.zsh #Link zsh.
+ln -s -F $DOTFILES_PATH/zsh/.zshrc $HOME/.zshrc #Link zsh.
 
 echo "🦄 finished without any errors"
