@@ -93,6 +93,7 @@ function installToolsIfNeeded {
     installSyntaxHighlighting
     updateiTerm2DynamicProfiles
     installBrewIfNeeded
+    installCasksIfNeeded
 }
 
 function installBrewIfNeeded {
@@ -101,6 +102,13 @@ function installBrewIfNeeded {
         # Install Homebrew
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
+}
+
+function installCasksIfNeeded {
+    # Install Visual Studio Code
+    if [[ ! -d "/Applications/Visual\ Studio\ Code.app" ]]; then
+        brew install visual-studio-code
+    fi 
 }
 
 function changePrompt {
