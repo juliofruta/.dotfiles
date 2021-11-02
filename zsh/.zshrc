@@ -97,10 +97,12 @@ function installBrewIfNeeded {
     fi
 }
 
+# this is buggy
 function installCasksIfNeeded {
     # Install Visual Studio Code
-    if [[ ! -d "/Applications/Visual\ Studio\ Code.app" ]]; then
+    if [[ ! -d "$HOME/Applications/Visual\ Studio\ Code.app" ]]; then
         brew install visual-studio-code
+        echo "true"
     fi
 }
 
@@ -110,7 +112,7 @@ function installToolsIfNeeded {
     installSyntaxHighlighting
     updateiTerm2DynamicProfiles
     installBrewIfNeeded
-    installCasksIfNeeded
+    #installCasksIfNeeded
 }
 
 function changePrompt {
