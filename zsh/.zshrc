@@ -122,6 +122,11 @@ function installCasksIfNeeded {
     if [[ ! -d "/Applications/Telegram.app" ]]; then
         brew install telegram
     fi
+
+    # Install Karabiner Elements
+    if [[ ! -d "/Applications/Karabiner Elements.app" ]]; then
+        brew install karabiner-elements 
+    fi
 }
 
 function installToolsIfNeeded {
