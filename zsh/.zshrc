@@ -99,9 +99,7 @@ function installBrewIfNeeded {
     which -s brew
     if [[ $? != 0 ]] ; then
         # Install Homebrew
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    else
-        brew update
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 }
 
