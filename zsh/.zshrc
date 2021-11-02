@@ -114,7 +114,7 @@ function installCasksIfNeeded {
     fi
     
     # Install iTerm2
-    if [[ ! -d "/Applications/iTerm2.app" ]]; then
+    if [[ ! -d "/Applications/iTerm.app" ]]; then
         brew install iterm2
     fi
     
