@@ -87,15 +87,6 @@ function updateDotfiles {
     bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 }
 
-function installToolsIfNeeded {
-    installOhMyZshIfNeeded
-    installZSHAutosuggestionsIfNeeded
-    installSyntaxHighlighting
-    updateiTerm2DynamicProfiles
-    installBrewIfNeeded
-    installCasksIfNeeded
-}
-
 function installBrewIfNeeded {
     which -s brew
     if [[ $? != 0 ]] ; then
@@ -108,7 +99,16 @@ function installCasksIfNeeded {
     # Install Visual Studio Code
     if [[ ! -d "/Applications/Visual\ Studio\ Code.app" ]]; then
         brew install visual-studio-code
-    fi 
+    fi
+}
+
+function installToolsIfNeeded {
+    installOhMyZshIfNeeded
+    installZSHAutosuggestionsIfNeeded
+    installSyntaxHighlighting
+    updateiTerm2DynamicProfiles
+    installBrewIfNeeded
+    installCasksIfNeeded
 }
 
 function changePrompt {
