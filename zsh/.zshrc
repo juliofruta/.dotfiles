@@ -129,7 +129,7 @@ function dotfilesReinstall {
 }
 
 function saveKarabinerConfig {
-    cp -R $HOME/.config/karabiner/karabiner.json $DOTFILES_PATH/.config/karabiner/karabiner.json
+    cp -R $HOME/.config/karabiner/karabiner.json $DOTFILES_PATH/karabiner/karabiner.json
 }
 
 function installToolsIfNeeded {
