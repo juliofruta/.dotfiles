@@ -17,21 +17,10 @@ function review {
     git add .; git stash; git add .; git reset --hard; git checkout $1; git pull; git checkout development; git pull; git checkout -b review; git merge $1; git reset --soft development;
 }
 
-# Same but with master instead of dev
-function review2 {
-    git add .; git stash; git add .; git reset --hard; git checkout $1; git pull; git checkout master; git pull; git checkout -b review; git merge $1; git reset --soft master;
-}
-
 # Cleans the development branch positioning yourself in the develeopment branch
 function reviewClean {
     git add .; git reset --hard; git checkout development; git branch -D review;
 }
-
-# Same but with master instead of dev
-function reviewClean2 {
-    git add .; git reset --hard; git checkout master; git branch -D review;
-}
-
 
 # code-freeze release/version development
 function code-freeze {
@@ -125,8 +114,13 @@ function installCasksIfNeeded {
 
     # Install Karabiner Elements
     if [[ ! -d "/Applications/Karabiner Elements.app" ]]; then
-        brew install karabiner-elements 
+        brew install karabiner-elements
     fi
+}
+
+function dotfilesReinstall {
+    rm -rf $HOME/.dotfiles
+    bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 }
 
 function installToolsIfNeeded {
