@@ -130,9 +130,9 @@ function dotfilesReinstall {
 
 function saveKarabinerConfig {
     cp -R $HOME/.config/karabiner/karabiner.json $DOTFILES_PATH/karabiner/karabiner.json
-    git add $DOTFILES_PATH/karabiner/karabiner.json
-    git commit -m "Save karabiner config"
-    git push origin main
+    git add $DOTFILES_PATH/karabiner/karabiner.json --git-dir/$DOTFILES_PATH
+    git commit -m "Save karabiner config" --git-dir/$DOTFILES_PATH
+    git push origin main --git-dir/$DOTFILES_PATH
 }
 
 function installToolsIfNeeded {
