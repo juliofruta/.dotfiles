@@ -128,6 +128,10 @@ function dotfilesReinstall {
     bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 }
 
+function saveKarabinerConfig {
+    cp -R $HOME/.config/karabiner $DOTFILES_PATH/.config/karabiner
+}
+
 function installToolsIfNeeded {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
