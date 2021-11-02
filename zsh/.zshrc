@@ -97,12 +97,30 @@ function installBrewIfNeeded {
     fi
 }
 
-# the if doesn't work
 function installCasksIfNeeded {
     # Install Visual Studio Code
-    if [[ ! -d "$HOME/Applications/Visual\ Studio\ Code.app" ]]; then
+    if [[ ! -d "$HOME/Applications/Visual Studio Code.app" ]]; then
         brew install visual-studio-code
-        echo "true"
+    fi
+    
+    # Install WhatsApp
+    if [[ ! -d "$HOME/Applications/WhatsApp.app" ]]; then
+        brew install whatsapp
+    fi
+    
+    # Install Github Desktop
+    if [[ ! -d "$HOME/Applications/Github Desktop.app" ]]; then
+        brew install github
+    fi
+    
+    # Install iTerm2
+    if [[ ! -d "$HOME/Applications/iTerm2.app" ]]; then
+        brew install iterm2
+    fi
+    
+    # Install Telegram
+    if [[ ! -d "$HOME/Applications/Telegram.app" ]]; then
+        brew install telegram
     fi
 }
 
@@ -112,7 +130,7 @@ function installToolsIfNeeded {
     installSyntaxHighlighting
     updateiTerm2DynamicProfiles
     installBrewIfNeeded
-    #installCasksIfNeeded
+    installCasksIfNeeded
 }
 
 function changePrompt {
