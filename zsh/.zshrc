@@ -87,6 +87,11 @@ function installBrewIfNeeded {
 }
 
 function installCasksIfNeeded {
+    # Install Google Chrome
+    if [[ ! -d "/Applications/Google Chrome.app" ]]; then
+        brew install google-chrome
+    fi
+
     # Install Visual Studio Code
     if [[ ! -d "/Applications/Visual Studio Code.app" ]]; then
         brew install visual-studio-code
