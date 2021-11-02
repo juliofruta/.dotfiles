@@ -97,7 +97,7 @@ function installBrewIfNeeded {
     fi
 }
 
-# this is buggy
+# the if doesn't work
 function installCasksIfNeeded {
     # Install Visual Studio Code
     if [[ ! -d "$HOME/Applications/Visual\ Studio\ Code.app" ]]; then
