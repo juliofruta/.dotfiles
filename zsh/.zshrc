@@ -113,7 +113,7 @@ function installCasksIfNeeded {
     fi
 
     # Install Karabiner Elements
-    if [[ ! -d "/Applications/Karabiner Elements.app" ]]; then
+    if [[ ! -d "/Applications/Karabiner-Elements.app" ]]; then
         brew install karabiner-elements
     fi
 }
