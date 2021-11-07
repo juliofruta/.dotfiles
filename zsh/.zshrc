@@ -125,7 +125,7 @@ function installCasksIfNeeded {
 
 function installFormulaeIfNeeded {
     # Install m-cli
-    if brew ls --versions myformula > /dev/null; then
+    if brew ls --versions m-cli > /dev/null; then
       # The package is installed
     else
       # The package is not installed
