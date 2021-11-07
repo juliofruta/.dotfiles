@@ -37,6 +37,29 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Change wallpaper on ctrl + option + command + h",
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control",
+                                            "left_option",
+                                            "left_command"
+                                        ]
+                                    }
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "shell_command": "/bin/zsh ~/.zshrc && /bin/zsh -i -c changeWallpaper"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
