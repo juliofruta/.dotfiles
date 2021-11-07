@@ -168,6 +168,10 @@ function linkConfigurationFiles {
     ln -s -F $DOTFILES_PATH/vim/.vimrc $HOME/.vimrc #Link vim config
 } 
 
+function changeWallpaper {
+    m wallpaper /Users/juliocesarguzmanvillanueva/Pictures/Photos\ Library.photoslibrary/originals/E/E2A4B9D4-52BB-4EC9-9BF6-218800FDD027.jpeg
+}
+
 plugins=(
     git
     dnf
