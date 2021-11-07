@@ -54,7 +54,7 @@
                                 },
                                 "to_if_alone": [
                                     {
-                                        "shell_command": "/bin/zsh ~/.zshrc && /bin/zsh -i -c shortcutJKey"
+                                        "shell_command": "/bin/zsh -i -c shortcutJKey"
                                     }
                                 ],
                                 "type": "basic"
@@ -77,7 +77,7 @@
                                 },
                                 "to_if_alone": [
                                     {
-                                        "shell_command": "/bin/zsh ~/.zshrc && /bin/zsh -i -c shortcutKKey"
+                                        "shell_command": "/bin/zsh -i -c shortcutKKey"
                                     }
                                 ],
                                 "type": "basic"
