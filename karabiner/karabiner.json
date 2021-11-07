@@ -18,7 +18,7 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Open Terminal on ctrl + option + command + t",
+                                "description": "t",
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": {
@@ -41,9 +41,9 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Change wallpaper on ctrl + option + command + h",
+                                "description": "j",
                                 "from": {
-                                    "key_code": "h",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_control",
@@ -54,7 +54,30 @@
                                 },
                                 "to_if_alone": [
                                     {
-                                        "shell_command": "/bin/zsh ~/.zshrc && /bin/zsh -i -c changeWallpaper"
+                                        "shell_command": "/bin/zsh ~/.zshrc && /bin/zsh -i -c shortcutJKey"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "k",
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control",
+                                            "left_option",
+                                            "left_command"
+                                        ]
+                                    }
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "shell_command": "/bin/zsh ~/.zshrc && /bin/zsh -i -c shortcutKKey"
                                     }
                                 ],
                                 "type": "basic"
