@@ -123,6 +123,16 @@ function installCasksIfNeeded {
     fi
 }
 
+function installFormulaeIfNeeded {
+    # Install m-cli
+    if brew ls --versions myformula > /dev/null; then
+      # The package is installed
+    else
+      # The package is not installed
+      brew install m-cli 
+    fi
+}
+
 function dotfilesReinstall {
     rm -rf $HOME/.dotfiles
     bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
@@ -142,6 +152,7 @@ function installToolsIfNeeded {
     updateiTerm2DynamicProfiles
     installBrewIfNeeded
     installCasksIfNeeded
+    installFormulaeIfNeeded
 }
 
 function changePrompt {
