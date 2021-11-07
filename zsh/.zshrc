@@ -133,7 +133,7 @@ function installFormulaeIfNeeded {
     fi
 }
 
-function dotfilesReinstall {
+function resetDotfiles {
     rm -rf $HOME/.dotfiles
     bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 }
@@ -173,14 +173,13 @@ function shortcutTKey {
     open -a iTerm 
 }
 
-function shortcutHKey {
-    m wallpaper /Users/juliocesarguzmanvillanueva/Pictures/Photos\ Library.photoslibrary/originals/E/E2A4B9D4-52BB-4EC9-9BF6-218800FDD027.jpeg
-}
-
 function shortcutJKey {
     m wallpaper /Users/juliocesarguzmanvillanueva/Pictures/Photos\ Library.photoslibrary/resources/derivatives/2/282074B7-71E7-495A-BB92-CBC9C8B9F5A4_1_105_c.jpeg
 }
 
+function shortcutKKey {
+    m wallpaper /Users/juliocesarguzmanvillanueva/Pictures/Photos\ Library.photoslibrary/originals/E/E2A4B9D4-52BB-4EC9-9BF6-218800FDD027.jpeg
+}
 
 plugins=(
     git
