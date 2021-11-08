@@ -121,6 +121,16 @@ function installCasksIfNeeded {
     if [[ ! -d "/Applications/Karabiner-Elements.app" ]]; then
         brew install karabiner-elements
     fi
+    
+    # Install SourceTree
+    if [[ ! -d "/Applications/Sourcetree.app" ]]; then
+        brew install sourcetree
+    fi
+    
+    # Install Blender
+    if [[ ! -d "/Applications/Blender.app" ]]; then
+        brew install blender
+    fi
 }
 
 function installFormulaeIfNeeded {
