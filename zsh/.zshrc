@@ -142,10 +142,16 @@ function installCasksIfNeeded {
         brew install epic-games
     fi
 
-    # Instal Steam
+    # Install Steam
     if [[ ! -d "/Applications/Steam.app" ]]; then
         brew install steam
     fi
+
+    # Install Discord
+    if [[ ! -d "/Applications/Discord.app" ]]; then
+        brew install discord
+    fi
+
 
 }
 
