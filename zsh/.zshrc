@@ -188,7 +188,7 @@ function shortcutJKey {
 }
 
 function shortcutKKey {
-    m wallpaper /Users/juliocesarguzmanvillanueva/Pictures/Photos\ Library.photoslibrary/originals/E/E2A4B9D4-52BB-4EC9-9BF6-218800FDD027.jpeg
+    m wallpaper /Users/juliocesarguzmanvillanueva/Pictures/Photos\ Library.photoslibrary/originals/E/E1243D73-F566-4FF9-A23B-500C2455FAA6.png
 }
 
 plugins=(
