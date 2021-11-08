@@ -131,6 +131,16 @@ function installCasksIfNeeded {
     if [[ ! -d "/Applications/Blender.app" ]]; then
         brew install blender
     fi
+
+    # Install Cheatsheet
+    if [[ ! -d "/Applications/Cheatsheet.app" ]]; then
+        brew install cheatsheet
+    fi
+
+    # Install Epic Games Launcher
+    if [[ ! -d "/Applications/Epic\ Games\ Launcher.app" ]]; then
+        brew install epic-games
+    fi
 }
 
 function installFormulaeIfNeeded {
