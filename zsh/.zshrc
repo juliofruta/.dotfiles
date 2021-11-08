@@ -138,9 +138,15 @@ function installCasksIfNeeded {
     fi
 
     # Install Epic Games Launcher
-    if [[ ! -d "/Applications/Epic\ Games\ Launcher.app" ]]; then
+    if [[ ! -d "/Applications/Epic Games Launcher.app" ]]; then
         brew install epic-games
     fi
+
+    # Instal Steam
+    if [[ ! -d "/Applications/Steam.app" ]]; then
+        brew install steam
+    fi
+
 }
 
 function installFormulaeIfNeeded {
