@@ -12,7 +12,7 @@ echo "👉  Cloning into: '$DOTFILES_PATH'"
 
 # To test that git is installed (if not macOS will prompt an installer)
 git --version
-git clone --depth 1 git@github.com:juiiocesar/.dotfiles.git "$DOTFILES_PATH"
+git clone --depth 1 https://github.com/JuIioCesar/.dotfiles.git "$DOTFILES_PATH"
 
 # The plugin is already in the zsh config.
 ln -s -F $DOTFILES_PATH/zsh/.zshrc $HOME/.zshrc #Link zsh.
