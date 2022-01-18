@@ -91,22 +91,7 @@ function installBrewIfNeeded {
     fi
 }
 
-function installCasksIfNeeded {
-    # Install Google Chrome
-    if [[ ! -d "/Applications/Google Chrome.app" ]]; then
-        brew install google-chrome
-    fi
-
-    # Install Visual Studio Code
-    if [[ ! -d "/Applications/Visual Studio Code.app" ]]; then
-        brew install visual-studio-code
-    fi
-    
-    # Install WhatsApp
-    if [[ ! -d "/Applications/WhatsApp.app" ]]; then
-        brew install whatsapp
-    fi
-    
+function installWorkCasksIfNeeded {
     # Install Github Desktop
     if [[ ! -d "/Applications/Github Desktop.app" ]]; then
         brew install github
@@ -117,11 +102,6 @@ function installCasksIfNeeded {
         brew install iterm2
     fi
     
-    # Install Telegram
-    if [[ ! -d "/Applications/Telegram.app" ]]; then
-        brew install telegram
-    fi
-
     # Install Karabiner Elements
     if [[ ! -d "/Applications/Karabiner-Elements.app" ]]; then
         brew install karabiner-elements
@@ -130,6 +110,28 @@ function installCasksIfNeeded {
     # Install SourceTree
     if [[ ! -d "/Applications/Sourcetree.app" ]]; then
         brew install sourcetree
+    fi
+    
+    # Install Visual Studio Code
+    if [[ ! -d "/Applications/Visual Studio Code.app" ]]; then
+        brew install visual-studio-code
+    fi
+}
+
+function installPersonalCasksIfNeeded {
+    # Install Google Chrome
+    if [[ ! -d "/Applications/Google Chrome.app" ]]; then
+        brew install google-chrome
+    fi
+    
+    # Install WhatsApp
+    if [[ ! -d "/Applications/WhatsApp.app" ]]; then
+        brew install whatsapp
+    fi
+        
+    # Install Telegram
+    if [[ ! -d "/Applications/Telegram.app" ]]; then
+        brew install telegram
     fi
     
     # Install Blender
@@ -156,8 +158,6 @@ function installCasksIfNeeded {
     if [[ ! -d "/Applications/Discord.app" ]]; then
         brew install discord
     fi
-
-
 }
 
 function installFormulaeIfNeeded {
@@ -188,7 +188,7 @@ function installToolsIfNeeded {
     installSyntaxHighlighting
     updateiTerm2DynamicProfiles
     installBrewIfNeeded
-    installCasksIfNeeded
+    installWorkCasksIfNeeded
     installFormulaeIfNeeded
 }
 
