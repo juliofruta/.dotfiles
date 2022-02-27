@@ -26,7 +26,7 @@ function review {
 
 # Cleans the development branch positioning yourself in the develeopment branch
 function reviewClean {
-    git add .; git reset --hard; git checkout development; git branch -D review;
+    git add .; git reset --hard; git checkout master; git branch -D review;
 }
 
 # code-freeze release/version development
