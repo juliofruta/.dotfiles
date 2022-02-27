@@ -20,7 +20,7 @@ function prtitles {
 # Review a phab -- consider that this will get rid of all your current changes. and stash them.
 function review {
     git add . && git stash && git add . && git reset --hard && arc restore $1 
-    export COMMIT = $(git rev-parse HEAD)
+    COMMIT=$(git rev-parse HEAD)
     git checkout master && git pull && make clean && make bootstrap && git submodule update && git checkout -b review && git merge $COMMIT && git reset --soft development;
 }
 
