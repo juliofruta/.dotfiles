@@ -17,9 +17,11 @@ function prtitles {
     git log --oneline $3...$4 | ggrep -oP '#\K[0-9]*' | xargs -I _ sh -c "gh pr view _ --repo $1/$2 | head -n 1" 
 }
 
-# Review a PR -- consider that this will get rid of all your current changes. and stash them.
+# Review a phab -- consider that this will get rid of all your current changes. and stash them.
 function review {
-    git add .; git stash; git add .; git reset --hard; git checkout $1; git pull; git checkout development; git pull; git checkout -b review; git merge $1; git reset --soft development;
+    git add . && git stash && git add . && git reset --hard && arc restore $1 
+    COMMIT = $(git rev-parse HEAD) 
+    git checkout master && git pull && make clean && make bootstrap && git submodule update && git checkout -b review && git merge $COMMIT && git reset --soft development;
 }
 
 # Cleans the development branch positioning yourself in the develeopment branch
