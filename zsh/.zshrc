@@ -97,8 +97,13 @@ function installWorkCasksIfNeeded {
     fi
 
     # Install Alfred
-    if [[ ! -d "/Applications/Alfred.app" ]]; then
+    if [[ ! -d "/Applications/Alfred 4.app" ]]; then
         brew install alfred
+    fi
+
+    # Install Rectangle
+    if [[ ! -d "/Applications/Rectangle.app" ]]; then
+        brew install --cask rectangle
     fi
 }
 
