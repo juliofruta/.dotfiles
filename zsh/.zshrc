@@ -174,6 +174,10 @@ function saveKarabinerConfig {
     git -C $DOTFILES_PATH push origin main
 }
 
+function installKarabinerConfig {
+    cp -R $DOTFILES_PATH/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
+}
+
 function installToolsIfNeeded {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
@@ -183,6 +187,7 @@ function installToolsIfNeeded {
     installWorkCasksIfNeeded
     installPersonalCasksIfNeeded
     installFormulaeIfNeeded
+    installKarabinerConfig
 }
 
 function changePrompt {
