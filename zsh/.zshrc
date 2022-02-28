@@ -160,6 +160,11 @@ function installPersonalCasksIfNeeded {
     if [[ ! -d "/Applications/Discord.app" ]]; then
         brew install discord
     fi
+
+    # Install Alfred
+    if [[ ! -d "/Applications/Alfred.app" ]]; then
+        brew install alfred
+    fi
 }
 
 function installFormulaeIfNeeded {
