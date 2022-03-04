@@ -106,19 +106,21 @@ function installWorkCasksIfNeeded {
         brew install --cask rectangle
     fi
 
-    # Install Neovim
-    If [[ ! -d "/Applications/Neovim.app" ]]; then
-        brew install neovim
+    brew_install neovim
+}
+
+function brew_install() {
+    if ! brew list $1 &>/dev/null; then
+       brew install $1
     fi
 }
 
 function installPersonalCasksIfNeeded {
     
-    if [[ "Julios-MacBook-Air.local" = "$(hostname -f)" ]]; then
-        echo "Installing personal casks if needed"
-    else
-        echo "Skipping personal casks if needed"
-	return
+    # Only install these if on personal computer.
+    if [[ ! "Julios-MacBook-Air.local" = "$(hostname -f)" ]]; then
+        echo "Work computer detected." # > /dev/null
+        return
     fi
 
     # Install Google Chrome

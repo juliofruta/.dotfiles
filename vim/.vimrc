@@ -15,3 +15,9 @@ Plug 'keith/swift.vim'
 
 " Initialize plugin system
 call plug#end()
+
+syntax on
+set nu
+set nowrap
+set noswapfile
+set nobackup
