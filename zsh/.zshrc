@@ -105,6 +105,11 @@ function installWorkCasksIfNeeded {
     if [[ ! -d "/Applications/Rectangle.app" ]]; then
         brew install --cask rectangle
     fi
+
+    # Install Neovim
+    If [[ ! -d "/Applications/Neovim.app" ]]; then
+        brew install neovim
+    fi
 }
 
 function installPersonalCasksIfNeeded {
