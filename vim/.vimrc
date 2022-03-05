@@ -1,23 +1,18 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
-
-Plug 'keith/swift.vim'
-
-
-" Initialize plugin system
-call plug#end()
-
 syntax on
 set nu
 set nowrap
 set noswapfile
 set nobackup
+set nowritebackup
+set tabstop=4
+set expandtab
+set autoindent
+set smartindent
+
+" So we don't have to press shift when we want to get into command mode.
+nnoremap ; :
+vnoremap ; :
+
+" So we don't have to reach for escape to leave insert mode.
+imap ff <Esc>
+nmap ff i
