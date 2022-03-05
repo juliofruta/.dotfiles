@@ -9,6 +9,8 @@ set expandtab
 set autoindent
 set smartindent
 
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'number'
+
 " So we don't have to press shift when we want to get into command mode.
 nnoremap ; :
 vnoremap ; :
