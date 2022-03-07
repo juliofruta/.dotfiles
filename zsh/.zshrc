@@ -106,9 +106,15 @@ function installWorkCasksIfNeeded {
         brew install --cask rectangle
     fi
 
+    # Install Maccy
+    if [[ ! -d "/Applications/Maccy.app" ]]; then 
+        brew install --cask maccy
+    fi
+
     brew_install neovim
     brew_install fzf
     brew_install tmux
+    
 }
 
 function brew_install() {
@@ -158,6 +164,11 @@ function installPersonalCasksIfNeeded {
     # Install Discord
     if [[ ! -d "/Applications/Discord.app" ]]; then
         brew install discord
+    fi
+    
+    # Install OBS
+    if [[ ! -d "/Applications/OBS.app" ]]; then
+        brew install --cask obs
     fi
 }
 
