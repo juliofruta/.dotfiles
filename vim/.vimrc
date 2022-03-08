@@ -16,5 +16,7 @@ nnoremap ; :
 vnoremap ; :
 
 " So we don't have to reach for escape to leave insert mode.
-imap ff <Esc>
+imap ff <Esc>l
 nmap ff i
+
+"TODO: Move lines 

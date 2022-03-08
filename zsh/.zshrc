@@ -170,6 +170,11 @@ function installPersonalCasksIfNeeded {
     if [[ ! -d "/Applications/OBS.app" ]]; then
         brew install --cask obs
     fi
+
+    # Install min
+    if [[ ! -d "/Applications/Min.app" ]]; then 
+       brew install --cask min
+    fi
 }
 
 function installFormulaeIfNeeded {
