@@ -252,9 +252,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 clear
-#
+showUnicorn
 changePrompt
-
+linkConfigurationFiles
 
 #### FIG ENV VARIABLES ####
 # Please make sure this block is at the end of this file.
