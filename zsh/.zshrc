@@ -248,7 +248,7 @@ plugins=(
     pass
     zsh-autosuggestions
     zsh-syntax-highlighting
-    osx
+    macos
     web-search
     xcode
     command-not-found
