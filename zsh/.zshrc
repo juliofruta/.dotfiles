@@ -205,6 +205,7 @@ function installKarabinerConfig {
 
 # Run installation
 function install {
+    showUnicorn
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
@@ -251,7 +252,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 clear
-showUnicorn
+#
 changePrompt
 
 
