@@ -244,15 +244,8 @@ function shortcutKKey {
 }
 
 plugins=(
-    git
-    dnf
-    pass
     zsh-autosuggestions
     zsh-syntax-highlighting
-    macos
-    web-search
-    xcode
-    command-not-found
 )
 
 source $ZSH/oh-my-zsh.sh
