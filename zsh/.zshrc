@@ -111,9 +111,20 @@ function installWorkCasksIfNeeded {
         brew install --cask maccy
     fi
 
+    # Install caffeine
+    if [[ ! -d "/Applications/Caffeine.app" ]]; then 
+       brew install --cask caffeine
+    fi
+
+    # Install Docker Desktop
+    if [[ ! -d "/Applications/Docker.app" ]]; then 
+       brew install --cask docker
+    fi
+
     brew_install neovim
     brew_install fzf
     brew_install tmux
+    brew_install docker
     
 }
 
@@ -174,11 +185,6 @@ function installPersonalCasksIfNeeded {
     # Install min
     if [[ ! -d "/Applications/Min.app" ]]; then 
        brew install --cask min
-    fi
-
-    # Install caffeine
-    if [[ ! -d "/Applications/Caffeine.app" ]]; then 
-       brew install --cask caffeine
     fi
 }
 
