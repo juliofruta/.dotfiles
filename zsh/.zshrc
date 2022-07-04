@@ -204,7 +204,7 @@ function installKarabinerConfig {
 }
 
 # Run installation
-function install {
+function unicorn {
     showUnicorn
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
