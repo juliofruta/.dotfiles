@@ -175,6 +175,11 @@ function installPersonalCasksIfNeeded {
     if [[ ! -d "/Applications/Min.app" ]]; then 
        brew install --cask min
     fi
+
+    # Install caffeine
+    if [[ ! -d "/Applications/Caffeine.app" ]]; then 
+       brew install --cask caffeine
+    fi
 }
 
 function installFormulaeIfNeeded {
@@ -216,6 +221,11 @@ function unicorn {
     installFormulaeIfNeeded
     installKarabinerConfig
     linkConfigurationFiles
+    removeAllItemsFromDock
+}
+
+function removeAllItemsFromDock {
+    defaults write com.apple.dock persistent-apps -array
 }
 
 function changePrompt {
@@ -237,11 +247,11 @@ function shortcutTKey {
 }
 
 function shortcutJKey {
-    m wallpaper /Users/juliocesarguzmanvillanueva/Pictures/Photos\ Library.photoslibrary/originals/4/4E2DDF54-3B2F-4485-AC18-ADA520402980.jpeg
+    m wallpaper $HOME/Pictures/Photos\ Library.photoslibrary/resources/derivatives/B/BDA4F350-EF0B-47E2-9DED-066A699BCA78_1_102_o.jpeg
 }
 
 function shortcutKKey {
-    m wallpaper /Users/juliocesarguzmanvillanueva/Pictures/Photos\ Library.photoslibrary/originals/E/E1243D73-F566-4FF9-A23B-500C2455FAA6.png
+    m wallpaper $HOME/Pictures/Photos\ Library.photoslibrary/originals/E/EE0ED416-71F8-4434-8F02-1A5F89AAD138.jpeg
 }
 
 plugins=(
