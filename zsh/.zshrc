@@ -124,7 +124,6 @@ function installWorkCasksIfNeeded {
     brew_install neovim
     brew_install fzf
     brew_install tmux
-    brew_install docker
     
 }
 
