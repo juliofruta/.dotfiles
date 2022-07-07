@@ -36,13 +36,8 @@
 ```
 ## 🚀 Installation
 
-1. Execute the [`installer`](installer) from your terminal.
+Execute the [`installer`](installer) from your terminal.
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
-```
-
-2. Run unicorn
-```bash
-unicorn
 ```
