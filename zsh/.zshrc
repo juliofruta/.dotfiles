@@ -192,6 +192,7 @@ function installFormulaeIfNeeded {
     # Install m-cli
     if brew ls --versions m-cli > /dev/null; then
       # The package is installed
+      echo ""
     else
       # The package is not installed
       brew install m-cli 
