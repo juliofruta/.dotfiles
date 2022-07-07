@@ -42,7 +42,6 @@ function updateiTerm2DynamicProfiles {
     # set iterm profiles
     if cp $DOTFILES_PATH/iterm/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/Profiles.json 
     then
-        :
     else
         echo "👁 iTerm profiles could not update"
     fi
