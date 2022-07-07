@@ -122,10 +122,15 @@ function installWorkCasksIfNeeded {
        brew install --cask docker
     fi
 
+    # Install RDM 
+    if [[ ! -d "/Applications/RDM.app" ]]; then 
+       brew install --cask avibrazil-rdm
+    fi
+
     brew_install neovim
     brew_install fzf
     brew_install tmux
-    
+    brew_install cmatrix    
 }
 
 function brew_install() {
@@ -272,6 +277,8 @@ clear
 showUnicorn
 changePrompt
 linkConfigurationFiles
+
+
 
 #### FIG ENV VARIABLES ####
 # Please make sure this block is at the end of this file.
