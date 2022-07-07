@@ -8,16 +8,37 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 
-# Review a phab -- consider that this will get rid of all your current changes. and stash them.
+# Takes all the Inspect PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
+# $1 - Github org
+# $2 - Github repo
+# $3 - CommitA
+# $4 - CommitB
+function prtitles { 
+    git log --oneline $3...$4 | ggrep -oP '#\K[0-9]*' | xargs -I _ sh -c "gh pr view _ --repo $1/$2 | head -n 1" 
+}
+
+# Review a PR -- consider that this will get rid of all your current changes. and stash them.
 function review {
-    git add . && git stash && git add . && git reset --hard && arc restore $1 && git checkout -b reviewHelp;
-    git checkout master && git pull && make clean && make bootstrap && git submodule update && git checkout -b review && git merge reviewHelp && git reset --soft master;
-    git branch -D reviewHelp;
+    git add .; git stash; git add .; git reset --hard; git checkout $1; git pull; git checkout main; git pull; git checkout -b review; git merge $1; git reset --soft main;
 }
 
 # Cleans the development branch positioning yourself in the develeopment branch
 function reviewClean {
-    git add .; git reset --hard; git checkout master; git branch -D review;
+    git add .; git reset --hard; git checkout main; git branch -D review;
+}
+
+# code-freeze release/version development
+function code-freeze {
+    git add .;
+    git reset --hard; 
+    git checkout release-candidate; 
+    git checkout -b $1
+    git merge -X theirs $2 --no-commit;
+    git diff --no-color $1 $2 | git apply;
+    git add .;
+    git merge --continue;
+    git diff $1 $2;
+    git diff $2 $1;
 }
 
 # Install Oh my zsh!
