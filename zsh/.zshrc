@@ -280,17 +280,21 @@ function lastNavRootDirectory {
 }
 
 function openiTermBehavior {
-    dir = $(lastNavRootDirectory)
-    open -a iTerm $dir
+    dir=$(lastNavRootDirectory)
+    open -a iTerm "${dir:2}" # this drops
 }
-	
+
+function something {
+    dir=$(lastNavRootDirectory)
+    open -a iTerm "${dir:2}" # this drops    
+}
 
 function shortcutTKey {
     open -a iTerm 
 }
 
 function shortcutJKey {
-    openiTerm
+    openiTermBehavior
 }
 
 function shortcutKKey {
