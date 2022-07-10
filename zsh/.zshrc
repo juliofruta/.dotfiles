@@ -275,12 +275,22 @@ function linkConfigurationFiles {
 } 
 
 
+function lastNavRootDirectory {
+    defaults read ~/Library/Preferences/com.apple.dt.Xcode.plist NSNavLastRootDirectory
+}
+
+function openiTermBehavior {
+    dir = $(lastNavRootDirectory)
+    open -a iTerm $dir
+}
+	
+
 function shortcutTKey {
     open -a iTerm 
 }
 
 function shortcutJKey {
-    m wallpaper $HOME/Pictures/Photos\ Library.photoslibrary/resources/derivatives/B/BDA4F350-EF0B-47E2-9DED-066A699BCA78_1_102_o.jpeg
+    openiTerm
 }
 
 function shortcutKKey {
