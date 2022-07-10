@@ -41,6 +41,11 @@ Execute the [`installer`](installer) from your terminal.
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 ```
+
+## 💻 System Requirements
+
+- macOS Monterey 15.4
+
 ## ⚒️ Features
 
 - Automatic app instalation
@@ -48,6 +53,6 @@ bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/insta
 - Great iTerm 2 theme
 - Code review tools
 - Xcode behaviors
-- Karabiner elements
+- System wide keyboard shortcuts
 - vim and tmux configuration
 
