@@ -1,2 +1,2 @@
 #!/bin/sh
-open -a Terminal "$SRCROOT"
+open -a iTerm "$SRCROOT"
