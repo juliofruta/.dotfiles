@@ -41,3 +41,9 @@ Execute the [`installer`](installer) from your terminal.
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 ```
+## ⚒️ Features
+
+- Automatic app instalation.
+- Code review tools.
+- Xcode behaviors.
+- Karabiner elements.
