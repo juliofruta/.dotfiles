@@ -49,4 +49,5 @@ bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/insta
 - Code review tools
 - Xcode behaviors
 - Karabiner elements
+- vim and tmux configuration
 
