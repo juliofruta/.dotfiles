@@ -34,7 +34,7 @@
                                   ,.@%(.......                                  
                                  .....                                         
 ```
-## 🚀 Installation
+## 🚀 One line of code.
 
 Execute the [`installer`](installer) from your terminal.
 
