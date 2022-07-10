@@ -43,7 +43,10 @@ bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/insta
 ```
 ## ⚒️ Features
 
-- Automatic app instalation.
-- Code review tools.
-- Xcode behaviors.
-- Karabiner elements.
+- Automatic app instalation
+- Autocompletion and syntac hightlighting on your terminal
+- Great iTerm 2 theme
+- Code review tools
+- Xcode behaviors
+- Karabiner elements
+
