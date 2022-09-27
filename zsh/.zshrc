@@ -28,7 +28,7 @@ function reviewClean {
 }
 
 # code-freeze release/version development
-function code-freeze {
+function codeFreeze {
     git add .;
     git reset --hard; 
     git checkout release-candidate; 
@@ -272,27 +272,23 @@ function showUnicorn {
 function linkConfigurationFiles {
     ln -s -F $DOTFILES_PATH/tmux/.tmux.conf $HOME/.tmux.conf #Link zsh.
     ln -s -F $DOTFILES_PATH/vim/.vimrc $HOME/.vimrc #Link vim config
-} 
+}
 
-
-function lastNavRootDirectory {
+function srcroot {
     defaults read ~/Library/Preferences/com.apple.dt.Xcode.plist NSNavLastRootDirectory
 }
 
 function openiTermBehavior {
-    dir=$(lastNavRootDirectory)
-    open -a iTerm "${dir:2}" # this drops
-}
-
-function something {
-    dir=$(lastNavRootDirectory)
-    open -a iTerm "${dir:2}" # this drops    
+    directory=$(srcroot)
+    open -a iTerm "${directory:2}" # this drops the first to chars
 }
 
 function shortcutTKey {
     open -a iTerm 
 }
 
+# Karabiner elements issue
+# https://github.com/pqrs-org/Karabiner-Elements/issues/1573
 function shortcutJKey {
     openiTermBehavior
 }
@@ -312,7 +308,6 @@ clear
 showUnicorn
 changePrompt
 linkConfigurationFiles
-
 
 
 #### FIG ENV VARIABLES ####

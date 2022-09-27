@@ -54,7 +54,7 @@
                                 },
                                 "to_if_alone": [
                                     {
-                                        "shell_command": "/bin/zsh -i -c shortcutJKey"
+                                        "shell_command": "osascript /Users/julio/.dotfiles/behaviors/open-finder.scpt"
                                     }
                                 ],
                                 "type": "basic"
