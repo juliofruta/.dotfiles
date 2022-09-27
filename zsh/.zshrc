@@ -19,7 +19,7 @@ function prtitles {
 
 # Review a PR -- consider that this will get rid of all your current changes. and stash them.
 function review {
-    git add .; git stash; git add .; git reset --hard; git checkout $1; git pull; git checkout main; git pull; git checkout -b review; git merge $1; git reset --soft main;
+    git add .; git stash; git add .; git reset --hard; git checkout $1; git pull; git checkout main; git pull; git checkout -b review; git merge $1; git reset --soft origin/main;
 }
 
 # Cleans the development branch positioning yourself in the develeopment branch
