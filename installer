@@ -2,7 +2,7 @@
 #!/usr/bin/env bash
 
 # Quit program if any command fails
-set -euo pipefail
+#set -euo pipefail
 
 echo "🚀 Installing dotfiles!"
 echo "-------------------------------------------------"
