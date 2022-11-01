@@ -245,6 +245,7 @@ function installKarabinerConfig {
 function unicorn {
     showUnicorn
     installOhMyZshIfNeeded
+    installPluginsifRequired
     #installZSHAutosuggestionsIfNeeded
     #installSyntaxHighlighting
     #updateiTerm2DynamicProfiles
@@ -295,6 +296,12 @@ function shortcutJKey {
 
 function shortcutKKey {
     m wallpaper $HOME/Pictures/Photos\ Library.photoslibrary/originals/E/EE0ED416-71F8-4434-8F02-1A5F89AAD138.jpeg
+}
+
+function installPluginsifRequired {
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions 
+    git clone https://github.com/zsh-users/zsh -syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
+    source ~/.zshrc
 }
 
 plugins=(
