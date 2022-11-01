@@ -248,9 +248,8 @@ function installKarabinerConfig {
 function unicorn {
     showUnicorn
     installOhMyZshIfNeeded
-    installPluginsifRequired
-    #installZSHAutosuggestionsIfNeeded
-    #installSyntaxHighlighting
+    installZSHAutosuggestionsIfNeeded
+    installSyntaxHighlighting
     #updateiTerm2DynamicProfiles
     #installBrewIfNeeded
     #installWorkCasksIfNeeded
