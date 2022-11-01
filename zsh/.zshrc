@@ -275,6 +275,7 @@ function showUnicorn {
 function linkConfigurationFiles {
     ln -s -f $DOTFILES_PATH/tmux/.tmux.conf $HOME/.tmux.conf #Link zsh.
     ln -s -f $DOTFILES_PATH/vim/.vimrc $HOME/.vimrc #Link vim config
+    ln -s -f $DOTFILES_PATH/ash/.profile $HOME/.profile #Link ash profile 
 }
 
 function srcroot {
