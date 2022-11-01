@@ -245,16 +245,16 @@ function installKarabinerConfig {
 function unicorn {
     showUnicorn
     installOhMyZshIfNeeded
-    installZSHAutosuggestionsIfNeeded
-    installSyntaxHighlighting
-    updateiTerm2DynamicProfiles
-    installBrewIfNeeded
-    installWorkCasksIfNeeded
-    installPersonalCasksIfNeeded
-    installFormulaeIfNeeded
-    installKarabinerConfig
-    linkConfigurationFiles
-    removeAllItemsFromDock
+    #installZSHAutosuggestionsIfNeeded
+    #installSyntaxHighlighting
+    #updateiTerm2DynamicProfiles
+    #installBrewIfNeeded
+    #installWorkCasksIfNeeded
+    #installPersonalCasksIfNeeded
+    #installFormulaeIfNeeded
+    #installKarabinerConfig
+    #linkConfigurationFiles
+    #removeAllItemsFromDock
 }
 
 function removeAllItemsFromDock {
