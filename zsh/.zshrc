@@ -47,6 +47,8 @@ function installOhMyZshIfNeeded {
     then
         echo "🤖 Installing Oh My Zsh!"
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        exit 
+        exec zsh
         rm -f $HOME/.zshrc
         # The plugin is already in the zsh config.
         ln -s $DOTFILES_PATH/zsh/.zshrc $HOME/.zshrc #Link zsh.
