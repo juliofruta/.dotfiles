@@ -24,7 +24,7 @@ fi
 
 # To test that git is installed (if not macOS will prompt an installer)
 git --version
-git clone --depth 1 https://github.com/JuIioCesar/.dotfiles.git "$DOTFILES_PATH"
+git clone https://github.com/JuIioCesar/.dotfiles.git "$DOTFILES_PATH"
 
 rm -f $HOME/.zshrc
 # The plugin is already in the zsh config.
