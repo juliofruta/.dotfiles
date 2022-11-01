@@ -39,7 +39,7 @@
 Execute the [`installer`](installer) from your terminal.
 
 ```bash
-wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer | bash
+wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer
 ```
 
 ## 💻 System Requirements
