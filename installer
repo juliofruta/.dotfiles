@@ -10,7 +10,7 @@ echo
 export DOTFILES_PATH="$HOME/.dotfiles"
 echo "👉  Cloning into: '$DOTFILES_PATH'"
 
-if [ $SHELL = /bin/ash ]
+if [ "$SHELL" = "/bin/ash" ]
 then 
     echo "ASH detected"
     # iSH git bug: https://github.com/ish-app/ish/issues/943#issuecomment-1129325583
