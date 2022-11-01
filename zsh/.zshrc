@@ -300,8 +300,7 @@ function shortcutKKey {
 
 function installPluginsifRequired {
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions 
-    git clone https://github.com/zsh-users/zsh -syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
-    source ~/.zshrc
+    git clone https://github.com/zsh-users/zsh -syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting     source ~/.zshrc
 }
 
 plugins=(
@@ -320,4 +319,4 @@ linkConfigurationFiles
 #### FIG ENV VARIABLES ####
 # Please make sure this block is at the end of this file.
 [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
+#### END FIG ENV VARIABLES ###
