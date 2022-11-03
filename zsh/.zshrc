@@ -52,6 +52,7 @@ function installOhMyZshIfNeeded {
         rm -f $HOME/.zshrc
         # The plugin is already in the zsh config.
         ln -s $DOTFILES_PATH/zsh/.zshrc $HOME/.zshrc #Link zsh.
+        exec zsh
     fi
 }
 
