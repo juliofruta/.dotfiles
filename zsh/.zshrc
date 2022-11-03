@@ -250,6 +250,7 @@ function unicorn {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
+    linkConfigurationFiles
     #updateiTerm2DynamicProfiles
     #installBrewIfNeeded
     #installWorkCasksIfNeeded
@@ -315,9 +316,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 clear
-showUnicorn
+unicorn
 changePrompt
-linkConfigurationFiles
 
 
 #### FIG ENV VARIABLES ####
