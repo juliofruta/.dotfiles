@@ -266,6 +266,10 @@ function unicorn {
     #removeAllItemsFromDock
 }
 
+function mountFiles {
+    mount -t ios website /mnt
+}
+
 function removeAllItemsFromDock {
     defaults write com.apple.dock persistent-apps -array
 }
