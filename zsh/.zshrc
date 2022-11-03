@@ -275,7 +275,7 @@ function removeAllItemsFromDock {
 }
 
 function changePrompt {
-    export PS1="🦄 %1d \$ "
+    export PS1="🦄 ➜ %1d (${vcs_info_msg_0_}) \$"
 }
 
 function showUnicorn {
