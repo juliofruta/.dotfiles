@@ -244,6 +244,10 @@ function installKarabinerConfig {
     cp -R $DOTFILES_PATH/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
 }
 
+function installNeoVimIfNeeded {
+    apk add neovim    
+}
+
 # Run installation
 function unicorn {
     showUnicorn
@@ -251,6 +255,7 @@ function unicorn {
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
+    installNeoVimIfNeeded
     #updateiTerm2DynamicProfiles
     #installBrewIfNeeded
     #installWorkCasksIfNeeded
