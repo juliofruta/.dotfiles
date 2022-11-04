@@ -274,17 +274,19 @@ function removeAllItemsFromDock {
     defaults write com.apple.dock persistent-apps -array
 }
 
-function changePrompt {
-    # Load version control information
-    autoload -Uz vcs_info
-    precmd() { vcs_info }
+# Find and set branch name var if in git repository.
+function git_branch_name() {
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '- ('$branch')'
+  fi
+}
 
-    # Format the vcs_info_msg_0_ variable
-    zstyle ':vcs_info:git:*' formats 'on branch %b'
- 
-    # Set up the prompt (with git branch name)
-    setopt PROMPT_SUBST
-    export PS1="🦄 ➜ %1d (${vcs_info_msg_0_}) \$ "
+function changePrompt {    
+    export PS1="🦄 ➜ %1d (${git_branch_name}) \$ "
 }
 
 function showUnicorn {
