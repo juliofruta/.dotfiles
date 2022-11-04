@@ -285,7 +285,7 @@ function git_branch_name() {
   fi
 }
 
-function changePrompt {    
+function changePrompt { 
     export PS1="🦄 ➜ %1d ($(git_branch_name)) \$ "
 }
 
