@@ -270,7 +270,7 @@ function apkIfNeeded {
     if ! command -v $1 &> /dev/null
     then
         echo "$1 could not be found installing 🤖"
-        apk add $1
+        apk add '\$1'
         exit
     fi
 }
@@ -294,8 +294,6 @@ function git_branch_name() {
 }
 
 function changePrompt { 
-
-
     # Load version control information
     autoload -Uz vcs_info
     precmd() { vcs_info }
