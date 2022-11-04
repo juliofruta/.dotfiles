@@ -228,6 +228,7 @@ function installFormulaeIfNeeded {
     fi
 }
 
+
 function resetDotfiles {
     rm -rf $HOME/.dotfiles
     wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer
@@ -244,9 +245,6 @@ function installKarabinerConfig {
     cp -R $DOTFILES_PATH/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
 }
 
-function installNeoVimIfNeeded {
-    apk add neovim    
-}
 
 # Run installation
 function unicorn {
@@ -255,7 +253,7 @@ function unicorn {
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
-    installNeoVimIfNeeded
+    installAPKsIfNeeded
     #updateiTerm2DynamicProfiles
     #installBrewIfNeeded
     #installWorkCasksIfNeeded
@@ -263,6 +261,20 @@ function unicorn {
     #installFormulaeIfNeeded
     #installKarabinerConfig
     #removeAllItemsFromDock
+}
+
+
+function apkIfNeeded {
+    if [[ $(which $1) ]]; then
+        echo ""
+    else
+        apk add $1
+    fi
+}
+
+function installAPKsIfNeeded {
+    apkIfNeeded zsh-vcs
+    apkIfNeeded neovim    
 }
 
 function mountFiles {
@@ -280,7 +292,6 @@ function git_branch_name() {
 
 function changePrompt { 
 
-    apk add zsh-vcs
 
     # Load version control information
     autoload -Uz vcs_info
@@ -291,7 +302,6 @@ function changePrompt {
  
     # Set up the prompt (with git branch name)
     setopt PROMPT_SUBST
-    #PROMPT = '%n in ${PWD/#$HOME/~} ${vcs_info_msg_0_} > '
     export PS1='🦄 ➜ %1d ${vcs_info_msg_0_} \$ '
 }
 
