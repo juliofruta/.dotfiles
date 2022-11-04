@@ -254,6 +254,8 @@ function unicorn {
     installSyntaxHighlighting
     linkConfigurationFiles
     installAPKsIfNeeded
+
+    # macOS (disabled for now)
     #updateiTerm2DynamicProfiles
     #installBrewIfNeeded
     #installWorkCasksIfNeeded
@@ -265,10 +267,11 @@ function unicorn {
 
 
 function apkIfNeeded {
-    if [[ $(which $1) ]]; then
-        echo ""
-    else
+    if ! command -v $1 &> /dev/null
+    then
+        echo "$(1) could not be found installing 🤖"
         apk add $1
+        exit
     fi
 }
 
