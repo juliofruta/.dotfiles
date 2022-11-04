@@ -291,8 +291,8 @@ function changePrompt {
  
     # Set up the prompt (with git branch name)
     setopt PROMPT_SUBST
-    PROMPT = '%n in ${PWD/#$HOME/~} ${vcs_info_msg_0_} > '
-    # export PS1="🦄 ➜ %1d $(git_branch_name) \$ "
+    #PROMPT = '%n in ${PWD/#$HOME/~} ${vcs_info_msg_0_} > '
+    export PS1="🦄 ➜ %1d ${git_branch_name} \$ "
 }
 
 function showUnicorn {
