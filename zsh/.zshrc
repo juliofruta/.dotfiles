@@ -279,7 +279,7 @@ function git_branch_name() {
 }
 
 function changePrompt { 
-    export PS1="🦄 ➜ %1d ($(git_branch_name)) \$ "
+    export PS1="🦄 ➜ %1d ($(git_branch_name())) \$ "
 }
 
 function showUnicorn {
