@@ -275,7 +275,7 @@ function removeAllItemsFromDock {
 
 # Find and set branch name var if in git repository.
 function git_branch_name() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    echo $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')
 }
 
 function changePrompt { 
