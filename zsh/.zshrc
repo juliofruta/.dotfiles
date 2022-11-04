@@ -269,7 +269,7 @@ function unicorn {
 function apkIfNeeded {
     if ! command -v $1 &> /dev/null
     then
-        echo "$(1) could not be found installing 🤖"
+        echo "$1 could not be found installing 🤖"
         apk add $1
         exit
     fi
