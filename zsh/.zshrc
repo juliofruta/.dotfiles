@@ -279,6 +279,9 @@ function git_branch_name() {
 }
 
 function changePrompt { 
+
+    apk add zsh-vcs
+
     # Load version control information
     autoload -Uz vcs_info
     precmd() { vcs_info }
