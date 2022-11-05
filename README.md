@@ -38,8 +38,15 @@
 
 Execute the [`installer`](installer) from your terminal.
 
+### Alpine Linux and Ubuntu
+
 ```bash
 wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer
+```
+
+### macOS
+```bash
+bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 ```
 
 ## 💻 System Requirements
