@@ -74,7 +74,4 @@ bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/insta
 
 ## dotfiles running on iPad through iSH and vs-code
 
-
-
-
-
+![900B18B9-918C-45A0-A3CC-015D0B6A531F](https://user-images.githubusercontent.com/17010592/200134470-647a2c6a-394e-4f26-9148-726853f9e69d.png)
