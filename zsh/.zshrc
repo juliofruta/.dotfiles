@@ -245,7 +245,6 @@ function installKarabinerConfig {
     cp -R $DOTFILES_PATH/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
 }
 
-
 # Run installation
 function unicorn {
     showUnicorn
@@ -253,34 +252,21 @@ function unicorn {
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
+
+    # Alpine Linux support
     installAPKsIfNeeded
 
-    # macOS (disabled for now)
-    #updateiTerm2DynamicProfiles
-    #installBrewIfNeeded
-    #installWorkCasksIfNeeded
-    #installPersonalCasksIfNeeded
-    #installFormulaeIfNeeded
-    #installKarabinerConfig
-    #removeAllItemsFromDock
-}
-
-
-function apkIfNeeded {
-    if ! command -v $1 &> /dev/null
-    then
-        echo "$1 could not be found installing 🤖"
-        apk add $1
+    # macOS Support
+    if [[ $OSTYPE == 'darwin'* ]]; then
+        echo '🤖 macOS detected macOS configuration'
+        updateiTerm2DynamicProfiles
+        installBrewIfNeeded
+        installWorkCasksIfNeeded
+        installPersonalCasksIfNeeded
+        installFormulaeIfNeeded
+        installKarabinerConfig
+        removeAllItemsFromDock
     fi
-}
-
-function installAPKsIfNeeded {
-    apkIfNeeded zsh-vcs
-    apkIfNeeded neovim    
-}
-
-function mountFiles {
-    mount -t ios website /mnt
 }
 
 function removeAllItemsFromDock {
@@ -344,6 +330,31 @@ function installPluginsifRequired {
     source ~/.zshrc
 }
 
+function runIfAshDetected {
+    if [ "$SHELL" = "/bin/ash" ]
+    then 
+        $1
+    fi
+}
+
+function mountFiles {
+    # mounts delected foldes into /mnt
+    mount -t ios website /mnt
+}
+
+function apkIfNeeded {
+    if ! command -v $1 &> /dev/null
+    then
+        echo "$1 could not be found installing 🤖"
+        apk add $1
+    fi
+}
+
+function installAPKsIfNeeded {
+    apkIfNeeded zsh-vcs
+    apkIfNeeded neovim    
+}
+
 plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -354,7 +365,6 @@ source $ZSH/oh-my-zsh.sh
 clear
 unicorn
 changePrompt
-
 
 #### FIG ENV VARIABLES ####
 # Please make sure this block is at the end of this file.

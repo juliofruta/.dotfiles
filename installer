@@ -10,9 +10,10 @@ echo
 export DOTFILES_PATH="$HOME/.dotfiles"
 echo "👉  Cloning into: '$DOTFILES_PATH'"
 
+# Install git, curl and zsh because Alpine linux does not have it.
 if [ "$SHELL" = "/bin/ash" ]
 then 
-    echo "ASH detected"
+    echo "🤖 ASH detected. Installing git, curl and zsh using apk"
     # iSH git bug: https://github.com/ish-app/ish/issues/943#issuecomment-1129325583
     apk del git
     wget https://dl-cdn.alpinelinux.org/alpine/v3.11/main/x86/git-2.24.4-r0.apk
