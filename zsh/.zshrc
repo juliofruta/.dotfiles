@@ -312,7 +312,6 @@ function showUnicorn {
 \e[49m                 \e[38;5;89;49m▄\e[38;5;218;48;5;89m▄\e[38;5;218;48;5;218m▄\e[38;5;175;48;5;218m▄\e[38;5;89;48;5;218m▄\e[38;5;89;48;5;211m▄\e[38;5;89;48;5;89m▄\e[49;38;5;89m▀\e[49m             \e[m
 \e[49m               \e[38;5;89;49m▄\e[38;5;89;48;5;89m▄\e[38;5;89;48;5;125m▄\e[49;38;5;89m▀▀▀\e[49m                 \e[m
 ";  
-    cat $DOTFILES_PATH/zsh/unicorn.ans
 }
 
 function linkConfigurationFiles {
