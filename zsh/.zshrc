@@ -274,7 +274,7 @@ function removeAllItemsFromDock {
 }
 
 # Find and set branch name var if in git repository.
-function git_branch_name() {
+function git_branch_name {
     echo $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')
 }
 
