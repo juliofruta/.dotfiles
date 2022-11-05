@@ -80,10 +80,6 @@ function installSyntaxHighlighting {
     fi
 }
 
-function updateDotfiles {
-    rm -rf $HOME/.dotfiles
-    bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
-}
 
 function installBrewIfNeeded {
     which -s brew
@@ -228,10 +224,14 @@ function installFormulaeIfNeeded {
     fi
 }
 
-
 function resetDotfiles {
     rm -rf $HOME/.dotfiles
     wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer
+}
+
+function updateDotfiles {
+    rm -rf $HOME/.dotfiles
+    zsh <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 }
 
 function saveKarabinerConfig {
@@ -279,6 +279,7 @@ function git_branch_name() {
 }
 
 function changePrompt { 
+    
     # Load version control information
     autoload -Uz vcs_info
     precmd() { vcs_info }
