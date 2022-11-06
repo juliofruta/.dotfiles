@@ -70,7 +70,7 @@ bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/insta
 
 ## dotfiles on macOS 
 
-<img width="682" alt="Screen Shot 2022-07-09 at 10 29 10 PM" src="https://user-images.githubusercontent.com/17010592/178132601-ce1b92dc-769f-4856-a306-6d7d03960688.png">
+<img width="582" alt="Screenshot 2022-11-06 at 8 58 06 AM" src="https://user-images.githubusercontent.com/17010592/200184117-c1a7a0d2-aa72-4cd0-8f42-71ca9f0caee4.png">
 
 ## dotfiles running on iPad through iSH and vs-code
 
