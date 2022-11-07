@@ -380,7 +380,7 @@ function installSwift {
     sudo mv swift-5.3-RELEASE-ubuntu20.04 /usr/share/swift
 
     echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
-    source ~/.zshrc
+    #source ~/.zshrc
 
     swift -v
 }
