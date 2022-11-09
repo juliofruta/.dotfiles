@@ -5,8 +5,8 @@ import ComposableArchitecture
 struct AppReducer: ReducerProtocol {
     
     struct State: Equatable {
-        var linuxClipboard = ClipboardReducer.State(installScript: "wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer")
-        var macOSClipboard = ClipboardReducer.State(installScript: "bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)")
+        var linuxClipboard = ClipboardReducer.State()
+        var macOSClipboard = ClipboardReducer.State()
     }
     
     enum Action {
@@ -37,17 +37,18 @@ struct RootView: View {
                   opacity: 1.0
             )
             VStack(alignment: .center, spacing: 20) {
-                Text(".dotfiles installation")
+                Text("let's get you set up")
                     .foregroundColor(.black)
-                    .minimumScaleFactor(0.3)
+                    .minimumScaleFactor(0.5)
                     .font(.title)
                     .bold()
                     .truncationMode(.middle)
+                    .padding(20)
                 Button(action: {  }, label: {
-                    Image("relaxed")
+                    Image("computer")
                         .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
                         .scaledToFit()
-                        .frame(minWidth: 0,
+                        .frame(minWidth: 300,
                                idealWidth: 300, 
                                maxWidth: .infinity,
                                minHeight: 100, 
@@ -56,24 +57,38 @@ struct RootView: View {
                                alignment: .center
                         )
                 })
-                Text("I like dotfiles and I cannot lie!")
+                Text("How to install:")
                     .foregroundColor(.black)
-                    .minimumScaleFactor(0.3)
                     .font(.largeTitle)
                     .bold()
                     .truncationMode(.middle)
                 Text("""
-                         1. Copy install script below
-                         2. Paste on your terminal
-                         3. Hit return; and let it install
-                         4. Get all terminal features
-                         """)
+                 1. Copy install script below
+                 2. Paste on your terminal
+                 3. Hit return; and let it install
+                 4. Get cool terminal features such as:
+                    • Autocompletion
+                    • Swift
+                    • Git
+                    • Code review tools
+                    • neovim and tmux theme 
+                """)
                 .foregroundColor(.black)
+                .font(.title3)
                 .bold()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                CopySection(title: "Alipine Linux & Ubuntu", store: self.store.scope(state: \.linuxClipboard, action: AppReducer.Action.linuxClipboardAction))
-                CopySection(title: "macOS", store: self.store.scope(state: \.macOSClipboard, action: AppReducer.Action.macOSClipboardAction))
+                Clipboard(
+                    title: "Alipine Linux & Ubuntu", 
+                    content: "wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer", 
+                    store: self.store.scope(state: \.linuxClipboard, action: AppReducer.Action.linuxClipboardAction)
+                )
+                Clipboard(
+                    title: "macOS", 
+                    content: "bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)", 
+                    store: self.store.scope(state: \.macOSClipboard, action: AppReducer.Action.macOSClipboardAction)
+                )
             }
+//            .ignoresSafeArea(.all, edges: .bottom)
+//            .ignoresSafeArea(.all, edges: .top)
         }
     }
 }
@@ -82,18 +97,13 @@ struct ClipboardReducer: ReducerProtocol {
     struct State: Equatable {
         var symbol = Symbol.squares
         var remainingSeconds = 0.0
-        let installScript: String  
         let waitTime = 2.0
-        
-        init(installScript: String) {
-            self.installScript = installScript
-        }
     }
     
     enum Action {
         case noop
         case reset
-        case copyToClipboard
+        case copyToClipboard(String)
     }
     
     enum Symbol: String {
@@ -111,10 +121,10 @@ struct ClipboardReducer: ReducerProtocol {
                 state.symbol = .squares
             }
             return .none
-        case .copyToClipboard:
+        case .copyToClipboard(let content):
             state.symbol = .checkmark
             state.remainingSeconds = state.remainingSeconds + state.waitTime
-            UIPasteboard.general.string = state.installScript
+            UIPasteboard.general.string = content
             let waitTime = state.waitTime
             return .task { [waitTime] in
                 try await Task.sleep(for: .seconds(waitTime))
@@ -124,14 +134,15 @@ struct ClipboardReducer: ReducerProtocol {
     }
 }
 
-struct CopySection: View {
+struct Clipboard: View {
     
     let title: String
+    let content: String
     let store: StoreOf<ClipboardReducer>
     
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-            Button(action: { viewStore.send(.copyToClipboard) }) {
+            Button(action: { viewStore.send(.copyToClipboard(content) ) }) {
                 VStack(alignment: .leading, spacing: 20) {
                     Text(title)
                         .foregroundColor(.black)
@@ -139,17 +150,17 @@ struct CopySection: View {
                     HStack {
                         TextField("🍌", // the banana is not expected to appear
                                   text: viewStore.binding(
-                                    get: { $0.installScript },
+                                    get: { _ in content },
                                     send: ClipboardReducer.Action.noop
                                   )
                         )
                         .disabled(true)
                         .onTapGesture {
-                            viewStore.send(.copyToClipboard)
+                            viewStore.send(.copyToClipboard(content))
                         }
                         .accentColor(.black)
                         .foregroundColor(.black)
-                        Button(action: { viewStore.send(.copyToClipboard) }) {
+                        Button(action: { viewStore.send(.copyToClipboard(content)) }) {
                             Image(systemName: viewStore.state.symbol.rawValue)
                                 .accentColor(.black)
                         }
@@ -159,14 +170,11 @@ struct CopySection: View {
                 }
             }
             .frame(
-                minWidth: 50.0,
-                idealWidth: 100,
-                maxWidth: 300,
-                minHeight: 44.0,
-                idealHeight: 44.0,
-                maxHeight: .infinity,
+                minWidth: 300,
+                maxWidth: 400,
                 alignment: .center
             )
+            .padding(20)
         }
     }
 }
