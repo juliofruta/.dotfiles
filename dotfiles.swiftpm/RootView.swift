@@ -5,20 +5,20 @@ import ComposableArchitecture
 struct AppReducer: ReducerProtocol {
     
     struct State: Equatable {
-        var clipboard1 = ClipboardReducer.State(installScript: "wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer")
-        var clipboard2 = ClipboardReducer.State(installScript: "bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)")
+        var linuxClipboard = ClipboardReducer.State(installScript: "wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer")
+        var macOSClipboard = ClipboardReducer.State(installScript: "bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)")
     }
     
     enum Action {
-        case clipboard1Action(ClipboardReducer.Action)
-        case clipboard2Action(ClipboardReducer.Action)
+        case linuxClipboardAction(ClipboardReducer.Action)
+        case macOSClipboardAction(ClipboardReducer.Action)
     }
  
     var body: some ReducerProtocol<State, Action> {
-        Scope(state: \State.clipboard1, action: /Action.clipboard1Action) {
+        Scope(state: \State.linuxClipboard, action: /Action.linuxClipboardAction) {
             ClipboardReducer()
         }
-        Scope(state: \State.clipboard2, action: /Action.clipboard2Action) {
+        Scope(state: \State.macOSClipboard, action: /Action.macOSClipboardAction) {
             ClipboardReducer()
         }
     }
@@ -71,8 +71,8 @@ struct RootView: View {
                 .foregroundColor(.black)
                 .bold()
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                CopySection(title: "Alipine Linux & Ubuntu", store: self.store.scope(state: \.clipboard1, action: AppReducer.Action.clipboard1Action))
-                CopySection(title: "macOS", store: self.store.scope(state: \.clipboard2, action: AppReducer.Action.clipboard2Action))
+                CopySection(title: "Alipine Linux & Ubuntu", store: self.store.scope(state: \.linuxClipboard, action: AppReducer.Action.linuxClipboardAction))
+                CopySection(title: "macOS", store: self.store.scope(state: \.macOSClipboard, action: AppReducer.Action.macOSClipboardAction))
             }
         }
     }
