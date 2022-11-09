@@ -19,7 +19,7 @@ let package = Package(
             bundleIdentifier: "com.dotfiles.juliofruta.app",
             teamIdentifier: "V9QPA276C7",
             displayVersion: "0.1",
-            bundleVersion: "11",
+            bundleVersion: "13",
             appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.mint),
             supportedDeviceFamilies: [
