@@ -361,7 +361,8 @@ function apkIfNeeded {
 
 function installAPKsIfNeeded {
     apkIfNeeded zsh-vcs
-    apkIfNeeded neovim    
+    apkIfNeeded neovim 
+    apkIfNeeded sudo
 }
 
 function installSwift {
