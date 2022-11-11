@@ -366,18 +366,20 @@ function installAPKsIfNeeded {
 
 function installSwift {
     # install dependencies as in https://gist.github.com/Jswizzy/408af5829970f9eb18f9b45f891910bb
-    sudo apt install clang libpython2.7 libpython2.7-dev
+    apt install clang libpython2.7 libpython2.7-dev
+    
     # Download Swift 5.7.1
     https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
+    
     # extract tar 
     tar xzf swift-5.3-RELEASE-ubuntu20.04.tar.gz
 
     sudo mv swift-5.3-RELEASE-ubuntu20.04 /usr/share/swift
 
     echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
-    #source ~/.zshrc
 
-    swift -v
+    source ~/.zshrc
+
 }
 
 plugins=(
@@ -388,7 +390,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 clear
-banana
 changePrompt
 
 #### FIG ENV VARIABLES ####
