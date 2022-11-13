@@ -43,15 +43,14 @@ struct RootView: View {
                     .font(.title)
                     .bold()
                     .truncationMode(.middle)
-                    .padding(20)
-                Button(action: {  }, label: {
+                Button(action: { }, label: {
                     Image("computer")
                         .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
                         .scaledToFit()
                         .frame(minWidth: 300,
                                idealWidth: 300, 
                                maxWidth: .infinity,
-                               minHeight: 100, 
+                               minHeight: 150, 
                                idealHeight: 300,
                                maxHeight: .infinity, 
                                alignment: .center
@@ -74,6 +73,7 @@ struct RootView: View {
                     • neovim and tmux theme 
                 """)
                 .foregroundColor(.black)
+                .frame(minHeight: 250)
                 .font(.title3)
                 .bold()
                 Clipboard(
@@ -87,8 +87,6 @@ struct RootView: View {
                     store: self.store.scope(state: \.macOSClipboard, action: AppReducer.Action.macOSClipboardAction)
                 )
             }
-//            .ignoresSafeArea(.all, edges: .bottom)
-//            .ignoresSafeArea(.all, edges: .top)
         }
     }
 }
@@ -143,7 +141,7 @@ struct Clipboard: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             Button(action: { viewStore.send(.copyToClipboard(content) ) }) {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 16) {
                     Text(title)
                         .foregroundColor(.black)
                         .bold()
@@ -165,13 +163,14 @@ struct Clipboard: View {
                                 .accentColor(.black)
                         }
                     }
-                    .padding(20)
+                    .padding(16)
                     .border(.black, width: 1)
                 }
             }
             .frame(
                 minWidth: 300,
                 maxWidth: 400,
+                maxHeight: .infinity,
                 alignment: .center
             )
             .padding(20)
