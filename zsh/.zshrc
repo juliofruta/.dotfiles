@@ -253,9 +253,7 @@ function banana {
     installSyntaxHighlighting
     linkConfigurationFiles
 
-    # Alpine Linux support
-    installAPKsIfNeeded
-    installSwift
+
 
     # macOS Support
     if [[ $OSTYPE == 'darwin'* ]]; then
@@ -267,6 +265,10 @@ function banana {
         installFormulaeIfNeeded
         installKarabinerConfig
         removeAllItemsFromDock
+    else 
+        # Alpine Linux support
+        installAPKsIfNeeded
+        installSwift
     fi
 }
 
