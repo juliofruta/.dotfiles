@@ -147,7 +147,8 @@ function installWorkCasksIfNeeded {
        brew install --cask avibrazil-rdm
     fi
 
-    brew_install neovim
+    brew_install neoviapk update
+apk add git build-base cmake automake autoconf libtool pkgconf coreutils curl unzip gettext-tiny-devm
     brew_install fzf
     brew_install tmux
     brew_install cmatrix    
@@ -245,6 +246,14 @@ function installKarabinerConfig {
     cp -R $DOTFILES_PATH/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
 }
 
+function installNeoVim {
+    echo https://dl-cdn.alpinelinux.org/alpine/edge/main > /etc/apk/repositories
+    echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+    apk update
+    apk upgrade
+    apk add neovim
+}
+
 # Run installation
 function banana {
     showBanana 
@@ -252,7 +261,7 @@ function banana {
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
-
+    installNeoVim
 
 
     # macOS Support
@@ -362,8 +371,7 @@ function apkIfNeeded {
 }
 
 function installAPKsIfNeeded {
-    apkIfNeeded zsh-vcs
-    apkIfNeeded neovim 
+    #apkIfNeeded zsh-vcs
     apkIfNeeded sudo
 }
 
