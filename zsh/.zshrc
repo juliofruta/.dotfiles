@@ -384,21 +384,21 @@ function installSwift {
     #apk add libpython2.7-dev
     
     if [[ ! -f x.txt /usr/share/swift ]] ; then
-    # Download Swift 5.7.1
-    #x86_64 https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
-    #aarch64 https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
-    wget https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
-    # extract tar 
-    tar xzf swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
+        # Download Swift 5.7.1
+        #x86_64 https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
+        #aarch64 https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
+        wget https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
+        # extract tar 
+        tar xzf swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
 
-    mv swift-5.7.1-RELEASE-ubuntu20.04-aarch64 /usr/share/swift
+        mv swift-5.7.1-RELEASE-ubuntu20.04-aarch64 /usr/share/swift
 
-    echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
-    #source ~/.zshrc
+        echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
+        #source ~/.zshrc
 
-    swift -v
+        swift -v
     else
-    echo "swift is installed, skipping installation"
+        echo "swift is installed, skipping installation"
     fi
 }
 
