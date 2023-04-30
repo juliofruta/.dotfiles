@@ -16,10 +16,10 @@ struct AppReducer: ReducerProtocol {
  
     var body: some ReducerProtocol<State, Action> {
         Scope(state: \State.linuxClipboard, action: /Action.linuxClipboardAction) {
-            ClipboardReducer()
+            return ClipboardReducer()
         }
         Scope(state: \State.macOSClipboard, action: /Action.macOSClipboardAction) {
-            ClipboardReducer()
+            return ClipboardReducer()
         }
     }
 }
