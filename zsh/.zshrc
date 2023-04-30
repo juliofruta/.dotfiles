@@ -147,7 +147,8 @@ function installWorkCasksIfNeeded {
        brew install --cask avibrazil-rdm
     fi
 
-    brew_install neovim
+    brew_install neoviapk update
+apk add git build-base cmake automake autoconf libtool pkgconf coreutils curl unzip gettext-tiny-devm
     brew_install fzf
     brew_install tmux
     brew_install cmatrix    
@@ -245,6 +246,14 @@ function installKarabinerConfig {
     cp -R $DOTFILES_PATH/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
 }
 
+function installNeoVim {
+    echo https://dl-cdn.alpinelinux.org/alpine/edge/main > /etc/apk/repositories
+    echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+    apk update
+    apk upgrade
+    apk add neovim
+}
+
 # Run installation
 function banana {
     showBanana 
@@ -252,10 +261,8 @@ function banana {
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
+    installNeoVim
 
-    # Alpine Linux support
-    installAPKsIfNeeded
-    installSwift
 
     # macOS Support
     if [[ $OSTYPE == 'darwin'* ]]; then
@@ -267,6 +274,10 @@ function banana {
         installFormulaeIfNeeded
         installKarabinerConfig
         removeAllItemsFromDock
+    else 
+        # Alpine Linux support
+        installAPKsIfNeeded
+        installSwift
     fi
 }
 
@@ -360,8 +371,7 @@ function apkIfNeeded {
 }
 
 function installAPKsIfNeeded {
-    apkIfNeeded zsh-vcs
-    apkIfNeeded neovim 
+    #apkIfNeeded zsh-vcs
     apkIfNeeded sudo
 }
 
@@ -372,21 +382,23 @@ function installSwift {
     #apk add clang
     #apk add libpython2.7
     #apk add libpython2.7-dev
+    if ! command -v swift &> /dev/null ; then
+        # Download Swift 5.7.1
+        #x86_64 https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
+        #aarch64 https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
+        wget https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
+        # extract tar 
+        tar xzf swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
 
+        mv swift-5.7.1-RELEASE-ubuntu20.04-aarch64 /usr/share/swift
 
-    # Download Swift 5.7.1
-    #x86_64 https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
-    #aarch64 https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
-    wget https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
-    # extract tar 
-    tar xzf swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
+        echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
+        #source ~/.zshrc
 
-    mv swift-5.7.1-RELEASE-ubuntu20.04-aarch64 /usr/share/swift
-
-    echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
-    #source ~/.zshrc
-
-    swift -v
+        swift -v
+    else
+        echo "swift is installed, skipping installation"
+    fi
 }
 
 plugins=(
