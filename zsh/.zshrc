@@ -383,7 +383,7 @@ function installSwift {
         # extract tar 
         tar xzf swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
         sudo mv swift-5.7.1-RELEASE-ubuntu20.04-aarch64 /usr/share/swift
-        #sudo echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
+        sudo echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
         source ~/.zshrc
         swift -v
     else
