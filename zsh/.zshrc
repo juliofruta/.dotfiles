@@ -378,8 +378,8 @@ function installSwift {
     if ! command -v swift &> /dev/null ; then
         # Download Swift 5.7.1
         #x86_64 https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
-        aarch64 https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
-        #wget https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz # ASH?
+        #aarch64 https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
+        wget https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz # ASH?
         # extract tar 
         tar xzf swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
         sudo mv swift-5.7.1-RELEASE-ubuntu20.04-aarch64 /usr/share/swift
