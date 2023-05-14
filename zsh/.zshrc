@@ -241,12 +241,12 @@ function installKarabinerConfig {
     cp -R $DOTFILES_PATH/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
 }
 
-function installNeoVim {
-    #echo https://dl-cdn.alpinelinux.org/alpine/edge/main > /etc/apk/repositories
-    #echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
-    #apk update
-    #apk upgrade
-    #apk add neovim
+function installNeoVimOnASH {
+    echo https://dl-cdn.alpinelinux.org/alpine/edge/main > /etc/apk/repositories
+    echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+    apk update
+    apk upgrade
+    apk add neovim
 }
 
 # Run installation
@@ -256,6 +256,10 @@ function run_install {
     installSyntaxHighlighting
     linkConfigurationFiles
     #installNeoVim
+
+    if [ "$SHELL" = "/bin/ash" ]
+        installNeoVimOnASH
+    then
 
     # macOS Support
     if [[ $OSTYPE == 'darwin'* ]]; then
