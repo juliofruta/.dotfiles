@@ -255,11 +255,13 @@ function run_install {
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
-    #installNeoVim
-
+    
+    # ash support
     if [ "$SHELL" = "/bin/ash" ]
-        installNeoVimOnASH
     then
+        installNeoVimOnASH
+        installAPKsIfNeeded
+    fi
 
     # macOS Support
     if [[ $OSTYPE == 'darwin'* ]]; then
@@ -271,9 +273,7 @@ function run_install {
         installFormulaeIfNeeded
         installKarabinerConfig
         removeAllItemsFromDock
-    else 
-        # Alpine Linux support
-        #installAPKsIfNeeded
+    else
         installSwift
     fi
 }
