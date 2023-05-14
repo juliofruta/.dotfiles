@@ -1,14 +1,9 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
 # https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
 export PATH="$PATH:$HOME/.rvm/bin"
 export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 
-# Takes all the Inspect PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
+# Takes all the PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
 # $1 - Github org
 # $2 - Github repo
 # $3 - CommitA
@@ -148,7 +143,7 @@ function installWorkCasksIfNeeded {
     fi
 
     brew_install neoviapk update
-apk add git build-base cmake automake autoconf libtool pkgconf coreutils curl unzip gettext-tiny-devm
+    apk add git build-base cmake automake autoconf libtool pkgconf coreutils curl unzip gettext-tiny-devm
     brew_install fzf
     brew_install tmux
     brew_install cmatrix    
@@ -255,14 +250,12 @@ function installNeoVim {
 }
 
 # Run installation
-function banana {
-    showBanana 
+function run_install {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
     installNeoVim
-
 
     # macOS Support
     if [[ $OSTYPE == 'darwin'* ]]; then
@@ -301,24 +294,6 @@ function changePrompt {
     # Set up the prompt (with git branch name)
     setopt PROMPT_SUBST
     export PS1='🍌 ➜ %1d ${vcs_info_msg_0_} \$ '
-}
-
-function showBanana {
-printf "\e[48;5;214m               \e[38;5;214;48;5;214m▄▄\e[38;5;178;48;5;178m▄▄▄▄▄▄▄▄▄▄▄\e[m
-\e[48;5;214m              \e[38;5;214;48;5;214m▄\e[48;5;214m  \e[38;5;178;48;5;178m▄\e[48;5;178m       \e[38;5;178;48;5;178m▄\e[48;5;178m  \e[m
-\e[48;5;214m                 \e[48;5;178m         \e[38;5;178;48;5;178m▄\e[48;5;178m \e[m
-\e[48;5;214m               \e[38;5;214;48;5;214m▄\e[38;5;214;48;5;178m▄\e[48;5;178m         \e[38;5;178;48;5;178m▄\e[48;5;178m \e[m
-\e[38;5;214;48;5;214m▄▄▄▄▄▄\e[48;5;214m        \e[38;5;214;48;5;214m▄▄▄\e[38;5;178;48;5;178m▄▄▄\e[48;5;178m       \e[38;5;178;48;5;178m▄\e[m
-\e[38;5;214;48;5;214m▄▄▄▄\e[38;5;236;48;5;214m▄\e[38;5;235;48;5;233m▄\e[38;5;233;48;5;232m▄\e[38;5;232;48;5;0m▄\e[38;5;0;48;5;214m▄▄\e[48;5;214m    \e[38;5;214;48;5;214m▄▄▄\e[38;5;214;48;5;178m▄\e[38;5;236;48;5;178m▄\e[38;5;235;48;5;178m▄\e[38;5;234;48;5;232m▄\e[38;5;232;48;5;0m▄\e[48;5;0m \e[38;5;0;48;5;178m▄\e[48;5;178m    \e[m
-\e[48;5;214m \e[38;5;214;48;5;214m▄\e[38;5;236;48;5;214m▄\e[38;5;238;48;5;237m▄\e[38;5;238;48;5;238m▄\e[38;5;237;48;5;236m▄\e[38;5;235;48;5;234m▄\e[38;5;233;48;5;232m▄\e[48;5;0m   \e[48;5;214m   \e[38;5;214;48;5;214m▄▄▄\e[38;5;237;48;5;237m▄\e[38;5;238;48;5;238m▄\e[38;5;237;48;5;237m▄\e[38;5;235;48;5;235m▄\e[38;5;233;48;5;233m▄\e[48;5;0m   \e[38;5;0;48;5;178m▄\e[48;5;178m  \e[m
-\e[38;5;214;48;5;214m▄▄\e[38;5;234;48;5;236m▄\e[38;5;235;48;5;237m▄\e[38;5;236;48;5;237m▄\e[38;5;235;48;5;236m▄\e[38;5;233;48;5;234m▄\e[38;5;232;48;5;232m▄\e[48;5;0m    \e[48;5;214m  \e[38;5;214;48;5;214m▄▄\e[38;5;234;48;5;235m▄\e[38;5;235;48;5;237m▄\e[38;5;236;48;5;238m▄\e[38;5;235;48;5;237m▄\e[38;5;234;48;5;235m▄\e[38;5;232;48;5;233m▄\e[38;5;0;48;5;0m▄\e[48;5;0m   \e[48;5;178m  \e[m
-\e[48;5;214m  \e[38;5;214;48;5;233m▄\e[38;5;232;48;5;233m▄\e[38;5;232;48;5;234m▄\e[38;5;232;48;5;233m▄\e[38;5;0;48;5;232m▄\e[38;5;0;48;5;0m▄\e[48;5;0m   \e[48;5;214m      \e[38;5;232;48;5;233m▄\e[38;5;232;48;5;234m▄\e[38;5;232;48;5;233m▄\e[38;5;0;48;5;232m▄\e[38;5;0;48;5;0m▄\e[48;5;0m   \e[38;5;178;48;5;0m▄\e[48;5;178m  \e[m
-\e[48;5;214m    \e[38;5;214;48;5;0m▄\e[38;5;178;48;5;0m▄\e[48;5;0m  \e[38;5;214;48;5;0m▄▄\e[48;5;214m \e[38;5;238;48;5;214m▄\e[38;5;237;48;5;214m▄\e[38;5;236;48;5;214m▄\e[38;5;235;48;5;214m▄\e[38;5;234;48;5;214m▄\e[38;5;232;48;5;214m▄\e[48;5;178m \e[38;5;178;48;5;0m▄▄\e[48;5;0m   \e[38;5;178;48;5;0m▄\e[48;5;178m    \e[m
-\e[48;5;214m           \e[38;5;214;48;5;238m▄\e[38;5;237;48;5;237m▄\e[38;5;235;48;5;236m▄\e[38;5;234;48;5;235m▄\e[38;5;233;48;5;233m▄\e[38;5;214;48;5;232m▄\e[48;5;178m           \e[m
-\e[48;5;214m                 \e[48;5;178m           \e[m
-\e[48;5;214m                 \e[48;5;178m           \e[m
-\e[48;5;214m                 \e[48;5;178m           \e[m
-";
 }
 
 function linkConfigurationFiles {
@@ -409,10 +384,4 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 clear
-banana
 changePrompt
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ###
