@@ -350,7 +350,7 @@ function apkIfNeeded {
 }
 
 function installAPKsIfNeeded {
-    #apkIfNeeded zsh-vcs
+    apkIfNeeded zsh-vcs
     apkIfNeeded sudo
 }
 
