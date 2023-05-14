@@ -15,9 +15,7 @@ wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmo
 bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 ```
 
-### Then
-
-Then run:
+### heavy install 
 
 ```
 run_install
