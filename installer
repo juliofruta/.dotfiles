@@ -32,5 +32,6 @@ rm -f $HOME/.zshrc
 ln -s $DOTFILES_PATH/zsh/.zshrc $HOME/.zshrc #Link zsh.
 
 exec zsh
+run_install
 
 echo "🧠 finished" 
