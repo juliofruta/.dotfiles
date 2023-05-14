@@ -2,7 +2,6 @@
 export PATH="$PATH:$HOME/.rvm/bin"
 export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="/usr/share/swift/usr/bin:$PATH"
 
 # Takes all the PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
 # $1 - Github org
