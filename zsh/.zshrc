@@ -376,7 +376,7 @@ function installSwift {
 
         swift -v
     else
-        echo "swift is installed, skipping installation"
+        echo "installation failed: check if you have swift installed. If not this is a bug."
     fi
 }
 
