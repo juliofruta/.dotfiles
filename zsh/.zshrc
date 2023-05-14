@@ -2,6 +2,7 @@
 export PATH="$PATH:$HOME/.rvm/bin"
 export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="/usr/share/swift/usr/bin:$PATH"
 
 # Takes all the PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
 # $1 - Github org
@@ -369,6 +370,7 @@ function installSwift {
     if [ "$SHELL" = "/bin/ash" ]
     then
         echo "ASH detected installing dependencies 🤖"
+        apk update
         apk add clang
         apk add libpython2.7
         apk add libpython2.7-dev
@@ -382,7 +384,7 @@ function installSwift {
         # extract tar 
         tar xzf swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
         sudo mv swift-5.7.1-RELEASE-ubuntu20.04-aarch64 /usr/share/swift
-        sudo echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
+        #sudo echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
         source ~/.zshrc
         swift -v
     else
