@@ -356,7 +356,6 @@ function installAPKsIfNeeded {
 
 function installSwift {
     # install dependencies as in https://gist.github.com/Jswizzy/408af5829970f9eb18f9b45f891910bb
-
     #sudo apt install clang libpython2.7 libpython2.7-dev  
     #apk add clang
     #apk add libpython2.7
@@ -368,12 +367,9 @@ function installSwift {
         wget https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
         # extract tar 
         tar xzf swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
-
         sudo mv swift-5.7.1-RELEASE-ubuntu20.04-aarch64 /usr/share/swift
-
         sudo echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
         source ~/.zshrc
-
         swift -v
     else
         echo "installation failed: check if you have swift installed. If not this is a bug."
