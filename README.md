@@ -1,6 +1,6 @@
 # dotfiles
 
-## 🍌 One line of code.
+## 🧠 Two lines of code.
 
 Execute the [`installer`](installer) from your terminal.
 
@@ -8,18 +8,26 @@ Execute the [`installer`](installer) from your terminal.
 
 ```bash
 wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer
-```
+``` 
 
 ### 💻 macOS
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 ```
 
+### Then
+
+Then run:
+
+```
+run_install
+```
+
 ## 📝 System Requirements
 
 - macOS Monterey 15.4
 - alpine linux (iSH)
-- ubuntu (Github codespaces)
+- ubuntu 20.04 64 bit (Github codespaces 4 cores)
 
 ## ⚒️ macOS features
 
@@ -32,5 +40,6 @@ bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/insta
 ## ⚒️ Alpine linux features
 
 - vim and tmux configuration
+- Swift
 - Autocompletion and syntax hightlighting on your terminal
 
