@@ -242,11 +242,11 @@ function installKarabinerConfig {
 }
 
 function installNeoVim {
-    echo https://dl-cdn.alpinelinux.org/alpine/edge/main > /etc/apk/repositories
-    echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
-    apk update
-    apk upgrade
-    apk add neovim
+    #echo https://dl-cdn.alpinelinux.org/alpine/edge/main > /etc/apk/repositories
+    #echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+    #apk update
+    #apk upgrade
+    #apk add neovim
 }
 
 # Run installation
@@ -255,7 +255,7 @@ function run_install {
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
-    installNeoVim
+    #installNeoVim
 
     # macOS Support
     if [[ $OSTYPE == 'darwin'* ]]; then
@@ -269,7 +269,7 @@ function run_install {
         removeAllItemsFromDock
     else 
         # Alpine Linux support
-        installAPKsIfNeeded
+        #installAPKsIfNeeded
         installSwift
     fi
 }
