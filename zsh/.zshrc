@@ -356,13 +356,19 @@ function installAPKsIfNeeded {
 
 function installSwift {
     # install dependencies as in https://gist.github.com/Jswizzy/408af5829970f9eb18f9b45f891910bb
-    sudo apt update
-    sudo apt install clang libpython2.7 libpython2.7-dev
-
+    
+    if ! which apt &> /dev/null
+    then
+        echo "apt found, updating and installing dependencies 🤖"
+        sudo apt update
+        sudo apt install clang libpython2.7 libpython2.7-dev
+    
+    fi
+    
     # ash support
     if [ "$SHELL" = "/bin/ash" ]
     then
-          
+        echo "ASH detected installing dependencies 🤖"
         apk add clang
         apk add libpython2.7
         apk add libpython2.7-dev
