@@ -33,6 +33,4 @@ ln -s $DOTFILES_PATH/zsh/.zshrc $HOME/.zshrc #Link zsh.
 
 exec zsh
 
-banana
-
-echo "🍌 finished" 
+echo "🧠 finished" 
