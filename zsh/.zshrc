@@ -1,14 +1,9 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
 # https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
 export PATH="$PATH:$HOME/.rvm/bin"
 export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 
-# Takes all the Inspect PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
+# Takes all the PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
 # $1 - Github org
 # $2 - Github repo
 # $3 - CommitA
@@ -148,7 +143,7 @@ function installWorkCasksIfNeeded {
     fi
 
     brew_install neoviapk update
-apk add git build-base cmake automake autoconf libtool pkgconf coreutils curl unzip gettext-tiny-devm
+    apk add git build-base cmake automake autoconf libtool pkgconf coreutils curl unzip gettext-tiny-devm
     brew_install fzf
     brew_install tmux
     brew_install cmatrix    
@@ -246,7 +241,7 @@ function installKarabinerConfig {
     cp -R $DOTFILES_PATH/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
 }
 
-function installNeoVim {
+function installNeoVimOnASH {
     echo https://dl-cdn.alpinelinux.org/alpine/edge/main > /etc/apk/repositories
     echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
     apk update
@@ -255,14 +250,18 @@ function installNeoVim {
 }
 
 # Run installation
-function banana {
-    showBanana 
+function run_install {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
-    installNeoVim
-
+    
+    # ash support
+    if [ "$SHELL" = "/bin/ash" ]
+    then
+        installNeoVimOnASH
+        installAPKsIfNeeded
+    fi
 
     # macOS Support
     if [[ $OSTYPE == 'darwin'* ]]; then
@@ -274,9 +273,7 @@ function banana {
         installFormulaeIfNeeded
         installKarabinerConfig
         removeAllItemsFromDock
-    else 
-        # Alpine Linux support
-        installAPKsIfNeeded
+    else
         installSwift
     fi
 }
@@ -300,25 +297,7 @@ function changePrompt {
  
     # Set up the prompt (with git branch name)
     setopt PROMPT_SUBST
-    export PS1='🍌 ➜ %1d ${vcs_info_msg_0_} \$ '
-}
-
-function showBanana {
-printf "\e[48;5;214m               \e[38;5;214;48;5;214m▄▄\e[38;5;178;48;5;178m▄▄▄▄▄▄▄▄▄▄▄\e[m
-\e[48;5;214m              \e[38;5;214;48;5;214m▄\e[48;5;214m  \e[38;5;178;48;5;178m▄\e[48;5;178m       \e[38;5;178;48;5;178m▄\e[48;5;178m  \e[m
-\e[48;5;214m                 \e[48;5;178m         \e[38;5;178;48;5;178m▄\e[48;5;178m \e[m
-\e[48;5;214m               \e[38;5;214;48;5;214m▄\e[38;5;214;48;5;178m▄\e[48;5;178m         \e[38;5;178;48;5;178m▄\e[48;5;178m \e[m
-\e[38;5;214;48;5;214m▄▄▄▄▄▄\e[48;5;214m        \e[38;5;214;48;5;214m▄▄▄\e[38;5;178;48;5;178m▄▄▄\e[48;5;178m       \e[38;5;178;48;5;178m▄\e[m
-\e[38;5;214;48;5;214m▄▄▄▄\e[38;5;236;48;5;214m▄\e[38;5;235;48;5;233m▄\e[38;5;233;48;5;232m▄\e[38;5;232;48;5;0m▄\e[38;5;0;48;5;214m▄▄\e[48;5;214m    \e[38;5;214;48;5;214m▄▄▄\e[38;5;214;48;5;178m▄\e[38;5;236;48;5;178m▄\e[38;5;235;48;5;178m▄\e[38;5;234;48;5;232m▄\e[38;5;232;48;5;0m▄\e[48;5;0m \e[38;5;0;48;5;178m▄\e[48;5;178m    \e[m
-\e[48;5;214m \e[38;5;214;48;5;214m▄\e[38;5;236;48;5;214m▄\e[38;5;238;48;5;237m▄\e[38;5;238;48;5;238m▄\e[38;5;237;48;5;236m▄\e[38;5;235;48;5;234m▄\e[38;5;233;48;5;232m▄\e[48;5;0m   \e[48;5;214m   \e[38;5;214;48;5;214m▄▄▄\e[38;5;237;48;5;237m▄\e[38;5;238;48;5;238m▄\e[38;5;237;48;5;237m▄\e[38;5;235;48;5;235m▄\e[38;5;233;48;5;233m▄\e[48;5;0m   \e[38;5;0;48;5;178m▄\e[48;5;178m  \e[m
-\e[38;5;214;48;5;214m▄▄\e[38;5;234;48;5;236m▄\e[38;5;235;48;5;237m▄\e[38;5;236;48;5;237m▄\e[38;5;235;48;5;236m▄\e[38;5;233;48;5;234m▄\e[38;5;232;48;5;232m▄\e[48;5;0m    \e[48;5;214m  \e[38;5;214;48;5;214m▄▄\e[38;5;234;48;5;235m▄\e[38;5;235;48;5;237m▄\e[38;5;236;48;5;238m▄\e[38;5;235;48;5;237m▄\e[38;5;234;48;5;235m▄\e[38;5;232;48;5;233m▄\e[38;5;0;48;5;0m▄\e[48;5;0m   \e[48;5;178m  \e[m
-\e[48;5;214m  \e[38;5;214;48;5;233m▄\e[38;5;232;48;5;233m▄\e[38;5;232;48;5;234m▄\e[38;5;232;48;5;233m▄\e[38;5;0;48;5;232m▄\e[38;5;0;48;5;0m▄\e[48;5;0m   \e[48;5;214m      \e[38;5;232;48;5;233m▄\e[38;5;232;48;5;234m▄\e[38;5;232;48;5;233m▄\e[38;5;0;48;5;232m▄\e[38;5;0;48;5;0m▄\e[48;5;0m   \e[38;5;178;48;5;0m▄\e[48;5;178m  \e[m
-\e[48;5;214m    \e[38;5;214;48;5;0m▄\e[38;5;178;48;5;0m▄\e[48;5;0m  \e[38;5;214;48;5;0m▄▄\e[48;5;214m \e[38;5;238;48;5;214m▄\e[38;5;237;48;5;214m▄\e[38;5;236;48;5;214m▄\e[38;5;235;48;5;214m▄\e[38;5;234;48;5;214m▄\e[38;5;232;48;5;214m▄\e[48;5;178m \e[38;5;178;48;5;0m▄▄\e[48;5;0m   \e[38;5;178;48;5;0m▄\e[48;5;178m    \e[m
-\e[48;5;214m           \e[38;5;214;48;5;238m▄\e[38;5;237;48;5;237m▄\e[38;5;235;48;5;236m▄\e[38;5;234;48;5;235m▄\e[38;5;233;48;5;233m▄\e[38;5;214;48;5;232m▄\e[48;5;178m           \e[m
-\e[48;5;214m                 \e[48;5;178m           \e[m
-\e[48;5;214m                 \e[48;5;178m           \e[m
-\e[48;5;214m                 \e[48;5;178m           \e[m
-";
+    export PS1='🧠 ➜ %1d ${vcs_info_msg_0_} \$ '
 }
 
 function linkConfigurationFiles {
@@ -371,33 +350,44 @@ function apkIfNeeded {
 }
 
 function installAPKsIfNeeded {
-    #apkIfNeeded zsh-vcs
+    apkIfNeeded zsh-vcs
     apkIfNeeded sudo
 }
 
 function installSwift {
     # install dependencies as in https://gist.github.com/Jswizzy/408af5829970f9eb18f9b45f891910bb
 
-    #sudo apt install clang libpython2.7 libpython2.7-dev  
-    #apk add clang
-    #apk add libpython2.7
-    #apk add libpython2.7-dev
+    if ! which apt &> /dev/null
+    then
+        echo "apt found, updating and installing dependencies 🤖"
+        sudo apt update
+        sudo apt install clang libpython2.7 libpython2.7-dev
+    
+    fi
+    
+    # ash support
+    if [ "$SHELL" = "/bin/ash" ]
+    then
+        echo "ASH detected installing dependencies 🤖"
+        apk update
+        apk add clang
+        apk add libpython2.7
+        apk add libpython2.7-dev
+    fi
+
     if ! command -v swift &> /dev/null ; then
         # Download Swift 5.7.1
         #x86_64 https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
         #aarch64 https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
-        wget https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
+        wget https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz # 64 bit - 4core ubuntu Github Workspace
         # extract tar 
-        tar xzf swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
-
-        mv swift-5.7.1-RELEASE-ubuntu20.04-aarch64 /usr/share/swift
-
-        echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
-        #source ~/.zshrc
-
+        sudo tar xzf swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
+        sudo mv swift-5.7.1-RELEASE-ubuntu20.04 /usr/share/swift
+        sudo echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
+        source ~/.zshrc
         swift -v
     else
-        echo "swift is installed, skipping installation"
+        echo "installation failed: check if you have swift installed. If not this is a bug."
     fi
 }
 
@@ -409,10 +399,4 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 clear
-banana
 changePrompt
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ###
