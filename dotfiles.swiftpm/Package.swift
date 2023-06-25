@@ -34,7 +34,7 @@ let package = Package(
             ],
             capabilities: [
                 .faceID(purposeString: "Keep your personal data secure with Face ID"),
-                .apsEnvironment(purposeString: "This is a shotgun... hope it works!")
+                .pushNotifications(purposeString: "This is a shotgun... hope it works!")
 
             ],
             appCategory: .utilities
