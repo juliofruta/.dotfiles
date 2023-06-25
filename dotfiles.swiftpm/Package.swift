@@ -33,9 +33,6 @@ let package = Package(
                 .portraitUpsideDown(.when(deviceFamilies: [.pad]))
             ],
             capabilities: [
-                .faceID(purposeString: "Keep your personal data secure with Face ID"),
-                .pushNotifications(purposeString: "This is a shotgun... hope it works!")
-
             ],
             appCategory: .utilities
         )
