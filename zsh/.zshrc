@@ -271,7 +271,7 @@ function run_install {
         installWorkCasksIfNeeded
         installPersonalCasksIfNeeded
         installFormulaeIfNeeded
-        installKarabinerConfig
+        #installKarabinerConfig #broken: on first install Error:: cp: /var/root/.config/karabiner/karabiner.json: No such file or directory
         removeAllItemsFromDock
     else
         installSwift
