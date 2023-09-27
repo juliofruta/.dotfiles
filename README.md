@@ -11,8 +11,8 @@ wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmo
 ``` 
 
 ### 💻 macOS
-```bash
-bash <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
+```zsh
+zsh <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 ```
 
 ### heavy install 
