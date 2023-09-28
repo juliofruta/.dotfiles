@@ -280,6 +280,7 @@ function run_install {
 
 function removeAllItemsFromDock {
     defaults write com.apple.dock persistent-apps -array
+    killall Dock
 }
 
 # Find and set branch name var if in git repository.
