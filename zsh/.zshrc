@@ -259,14 +259,6 @@ function mountFiles {
     mount -t ios website /mnt
 }
 
-function apkIfNeeded {
-    if ! which $1 &> /dev/null
-    then
-        echo "$1 could not be found installing 🤖"
-        apk add $1
-    fi
-}
-
 plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
