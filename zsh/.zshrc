@@ -138,6 +138,7 @@ function installWorkCasksIfNeeded {
     fi
 
     brew_install tmux
+    brew_install neovim
 }
 
 function brew_install() {
