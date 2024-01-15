@@ -132,13 +132,8 @@ function installWorkCasksIfNeeded {
        brew install --cask docker
     fi
 
-    # Install RDM 
-    if [[ ! -d "/Applications/RDM.app" ]]; then 
-       brew install --cask avibrazil-rdm
-    fi
-
     brew_install tmux
-    brew_install neovim
+    brew install neovim
 }
 
 function brew_install() {
