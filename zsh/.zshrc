@@ -202,11 +202,6 @@ function installPersonalCasksIfNeeded {
     if [[ ! -d "/Applications/OBS.app" ]]; then
         brew install --cask obs
     fi
-
-    # Install min
-    if [[ ! -d "/Applications/Min.app" ]]; then 
-       brew install --cask min
-    fi
 }
 
 function installFormulaeIfNeeded {
@@ -255,27 +250,14 @@ function run_install {
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
-    
-    # ash support
-    if [ "$SHELL" = "/bin/ash" ]
-    then
-        installNeoVimOnASH
-        installAPKsIfNeeded
-    fi
 
     # macOS Support
-    if [[ $OSTYPE == 'darwin'* ]]; then
-        echo '🤖 macOS detected macOS configuration'
-        updateiTerm2DynamicProfiles
-        installBrewIfNeeded
-        installWorkCasksIfNeeded
-        installPersonalCasksIfNeeded
-        installFormulaeIfNeeded
-        #installKarabinerConfig #broken: on first install Error:: cp: /var/root/.config/karabiner/karabiner.json: No such file or directory
-        removeAllItemsFromDock
-    else
-        installSwift
-    fi
+    updateiTerm2DynamicProfiles
+    installBrewIfNeeded
+    installWorkCasksIfNeeded
+    installPersonalCasksIfNeeded
+    installFormulaeIfNeeded
+    removeAllItemsFromDock
 }
 
 function removeAllItemsFromDock {
@@ -316,27 +298,6 @@ function openiTermBehavior {
     open -a iTerm "${directory:2}" # this drops the first to chars
 }
 
-function shortcutTKey {
-    open -a iTerm 
-}
-
-# Karabiner elements issue
-# https://github.com/pqrs-org/Karabiner-Elements/issues/1573
-function shortcutJKey {
-    openiTermBehavior
-}
-
-function shortcutKKey {
-    m wallpaper $HOME/Pictures/Photos\ Library.photoslibrary/originals/E/EE0ED416-71F8-4434-8F02-1A5F89AAD138.jpeg
-}
-
-function runIfAshDetected {
-    if [ "$SHELL" = "/bin/ash" ]
-    then 
-        $1
-    fi
-}
-
 function mountFiles {
     # mounts delected foldes into /mnt
     mount -t ios website /mnt
@@ -353,43 +314,6 @@ function apkIfNeeded {
 function installAPKsIfNeeded {
     apkIfNeeded zsh-vcs
     apkIfNeeded sudo
-}
-
-function installSwift {
-    # install dependencies as in https://gist.github.com/Jswizzy/408af5829970f9eb18f9b45f891910bb
-
-    if ! which apt &> /dev/null
-    then
-        echo "apt found, updating and installing dependencies 🤖"
-        sudo apt update
-        sudo apt install clang libpython2.7 libpython2.7-dev
-    
-    fi
-    
-    # ash support
-    if [ "$SHELL" = "/bin/ash" ]
-    then
-        echo "ASH detected installing dependencies 🤖"
-        apk update
-        apk add clang
-        apk add libpython2.7
-        apk add libpython2.7-dev
-    fi
-
-    if ! command -v swift &> /dev/null ; then
-        # Download Swift 5.7.1
-        #x86_64 https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
-        #aarch64 https://download.swift.org/swift-5.7.1-release/ubuntu2004-aarch64/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04-aarch64.tar.gz
-        wget https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz # 64 bit - 4core ubuntu Github Workspace
-        # extract tar 
-        sudo tar xzf swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
-        sudo mv swift-5.7.1-RELEASE-ubuntu20.04 /usr/share/swift
-        sudo echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.zshrc
-        source ~/.zshrc
-        swift -v
-    else
-        echo "installation failed: check if you have swift installed. If not this is a bug."
-    fi
 }
 
 plugins=(
