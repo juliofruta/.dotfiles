@@ -97,11 +97,6 @@ function installWorkCasksIfNeeded {
         brew install iterm2
     fi
     
-    # Install Karabiner Elements
-    if [[ ! -d "/Applications/Karabiner-Elements.app" ]]; then
-        brew install karabiner-elements
-    fi
-    
     # Install SourceTree
     if [[ ! -d "/Applications/Sourcetree.app" ]]; then
         brew install sourcetree
@@ -142,11 +137,7 @@ function installWorkCasksIfNeeded {
        brew install --cask avibrazil-rdm
     fi
 
-    brew_install neoviapk update
-    apk add git build-base cmake automake autoconf libtool pkgconf coreutils curl unzip gettext-tiny-devm
-    brew_install fzf
     brew_install tmux
-    brew_install cmatrix    
 }
 
 function brew_install() {
@@ -204,17 +195,6 @@ function installPersonalCasksIfNeeded {
     fi
 }
 
-function installFormulaeIfNeeded {
-    # Install m-cli
-    if brew ls --versions m-cli > /dev/null; then
-      # The package is installed
-      echo ""
-    else
-      # The package is not installed
-      brew install m-cli 
-    fi
-}
-
 function resetDotfiles {
     rm -rf $HOME/.dotfiles
     wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer
@@ -223,25 +203,6 @@ function resetDotfiles {
 function updateDotfiles {
     rm -rf $HOME/.dotfiles
     zsh <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
-}
-
-function saveKarabinerConfig {
-    cp -R $HOME/.config/karabiner/karabiner.json $DOTFILES_PATH/karabiner/karabiner.json
-    git -C $DOTFILES_PATH add $DOTFILES_PATH/karabiner/karabiner.json
-    git -C $DOTFILES_PATH commit -m "Save karabiner config"
-    git -C $DOTFILES_PATH push origin main
-}
-
-function installKarabinerConfig {
-    cp -R $DOTFILES_PATH/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
-}
-
-function installNeoVimOnASH {
-    echo https://dl-cdn.alpinelinux.org/alpine/edge/main > /etc/apk/repositories
-    echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
-    apk update
-    apk upgrade
-    apk add neovim
 }
 
 # Run installation
@@ -256,18 +217,12 @@ function run_install {
     installBrewIfNeeded
     installWorkCasksIfNeeded
     installPersonalCasksIfNeeded
-    installFormulaeIfNeeded
     removeAllItemsFromDock
 }
 
 function removeAllItemsFromDock {
     defaults write com.apple.dock persistent-apps -array
     killall Dock
-}
-
-# Find and set branch name var if in git repository.
-function git_branch_name {
-    echo $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')
 }
 
 function changePrompt { 
@@ -309,11 +264,6 @@ function apkIfNeeded {
         echo "$1 could not be found installing 🤖"
         apk add $1
     fi
-}
-
-function installAPKsIfNeeded {
-    apkIfNeeded zsh-vcs
-    apkIfNeeded sudo
 }
 
 plugins=(
