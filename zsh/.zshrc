@@ -222,6 +222,9 @@ function removeAllItemsFromDock {
     killall Dock
 }
 
+function aliasvim {
+    alias vim="nvim"
+}
 function changePrompt { 
     # Load version control information
     autoload -Uz vcs_info

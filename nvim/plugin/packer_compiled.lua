@@ -77,7 +77,7 @@ _G.packer_plugins = {
   harpoon = {
     loaded = true,
     path = "/Users/juliocesarguzmanvillanueva/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/therprimeagen/harpoon"
+    url = "https://github.com/theprimeagen/harpoon"
   },
   ["nvim-treesitter"] = {
     loaded = true,
