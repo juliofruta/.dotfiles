@@ -1,0 +1,2 @@
+require("juliofruta")
+print(hello)
