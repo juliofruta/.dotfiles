@@ -2,7 +2,6 @@
 export PATH="$PATH:$HOME/.rvm/bin"
 export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
-aliasvim
 
 # Takes all the PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
 # $1 - Github org
@@ -269,3 +268,4 @@ source $ZSH/oh-my-zsh.sh
 
 clear
 changePrompt
+aliasvim
