@@ -34,6 +34,7 @@ run_install
 - Code review tools
 - Xcode behaviors
 - System wide keyboard shortcuts
+- Neovim configuration
 
 ## ⚒️ Alpine linux features
 
