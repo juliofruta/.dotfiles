@@ -36,11 +36,10 @@ require("lazy").setup({
 	},
 	{
 		"neovim/nvim-lspconfig",
-		build = "git clone https://github.com/apple/sourcekit-lsp $(HOME)",
 		opts = {
 			servers = {
 				sourcekit = {
-					cmd = "$(HOME)/sourcekit-lsp",
+					cmd = "$(xcrun --find sourcekit-lsp)",
 				},
 			},
 		}
