@@ -22,8 +22,8 @@ require("lazy").setup({
 	{
 		'fedepujol/move.nvim',
 		keys = {
-			{ "<leader>[", "<cmd>moveblock(-1)<cr>", desc = "moveblockup", mode = "v" }, -- not working
-			{ "<leader>]", "<cmd>moveblock(1)<cr>", desc = "moveblockdown", mode = "v" }, -- not working
+--			{ "<leader>[", "<cmd>moveblock(-1)<cr>", desc = "moveblockup", mode = "v" }, -- not working
+--			{ "<leader>]", "<cmd>moveblock(1)<cr>", desc = "moveblockdown", mode = "v" }, -- not working
 			{ "<leader>[", "<cmd>moveline(-1)<cr>", desc = "moveup", mode = "n" },
 			{ "<leader>]", "<cmd>moveline(1)<cr>", desc = "movedown", mode = "n" },
 		},
@@ -32,7 +32,7 @@ require("lazy").setup({
 	{
 		'nvim-telescope/telescope.nvim', 
 		tag = '0.1.5', 
-		build = "brew install ripgrep",
+		build = "brew install ripgrep; brew install fd",
 		dependencies = { 
 			{ 'nvim-lua/plenary.nvim' },
 			{ 'nvim-treesitter/nvim-treesitter' }
