@@ -32,9 +32,14 @@ require("lazy").setup({
 	{
 		'nvim-telescope/telescope.nvim', 
 		tag = '0.1.5', 
-		dependencies = { 'nvim-lua/plenary.nvim' }, 
+		build = { function() os.excecute("brew install ripgrep") end }
+		dependencies = { 
+			{ 'nvim-lua/plenary.nvim' },
+			{ 'nvim-treesitter/nvim-treesitter' }
+		}, 
 		keys = {
-			{ "<leader>pv", function () require 'telescope.builtin'.find_files() end, mode = "n" }
+			{ "<leader>pv", function () require 'telescope.builtin'.find_files() end, mode = "n" },
+			{ "<leader>ps", function () require 'telescope.builtin'.live_grep() end, mode = "n" }
 		}
 	}
 })
