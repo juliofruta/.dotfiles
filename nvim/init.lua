@@ -32,7 +32,7 @@ require("lazy").setup({
 	{
 		'nvim-telescope/telescope.nvim', 
 		tag = '0.1.5', 
-		build = { function() os.excecute("brew install ripgrep") end }
+		build = "brew install ripgrep",
 		dependencies = { 
 			{ 'nvim-lua/plenary.nvim' },
 			{ 'nvim-treesitter/nvim-treesitter' }
