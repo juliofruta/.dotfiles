@@ -19,15 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup plugins
 require("lazy").setup({
-	{
-		'fedepujol/move.nvim',
-		keys = {
---			{ "<leader>[", "<cmd>moveblock(-1)<cr>", desc = "moveblockup", mode = "v" }, -- not working
---			{ "<leader>]", "<cmd>moveblock(1)<cr>", desc = "moveblockdown", mode = "v" }, -- not working
-			{ "<leader>[", "<cmd>moveline(-1)<cr>", desc = "moveup", mode = "n" },
-			{ "<leader>]", "<cmd>moveline(1)<cr>", desc = "movedown", mode = "n" },
-		},
-	},
+	{ 'echasnovski/mini.nvim', version = '*' },
 	{ "bluz71/vim-nightfly-colors", name = "nightfly", priority = 1000 }, 
 	{
 		'nvim-telescope/telescope.nvim', 
@@ -40,6 +32,17 @@ require("lazy").setup({
 		keys = {
 			{ "<leader>pv", function () require 'telescope.builtin'.find_files() end, mode = "n" },
 			{ "<leader>ps", function () require 'telescope.builtin'.live_grep() end, mode = "n" }
+		}
+	},
+	{
+		"neovim/nvim-lspconfig",
+		build = "git clone https://github.com/apple/sourcekit-lsp $(HOME)",
+		opts = {
+			servers = {
+				sourcekit = {
+					cmd = "$(HOME)/sourcekit-lsp",
+				},
+			},
 		}
 	}
 })
