@@ -41,7 +41,7 @@ require("lazy").setup({
 -- lua initialization file
 vim.cmd [[colorscheme nightfly]]
 
-require("lua.swift") -- works but it's defined by where nvim was run for the first time. 
+require("lua.julio.swift") -- works but it's defined by where nvim was run for the first time. 
 
 vim.wo.number = true -- show line numbers 
 
