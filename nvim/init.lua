@@ -1,4 +1,5 @@
 -- VIM Key setup:
+print("Hello world")
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>0", vim.cmd.Ex)
 
