@@ -41,9 +41,12 @@ require("lazy").setup({
 -- lua initialization file
 vim.cmd [[colorscheme nightfly]]
 
-require("lua.julio.swift") -- works but it's defined by where nvim was run for the first time. 
-
 vim.wo.number = true -- show line numbers 
+vim.wo.relativenumber = true
+
+local home = os.getenv( "HOME" )
+
+require("julio.swift") -- works but it's defined by where nvim was run for the first time. 
 
 -- Demo to search symbols (doesn't work)
 vim.keymap.set("n", "<leader>fS", function()
