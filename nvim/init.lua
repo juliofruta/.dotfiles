@@ -31,7 +31,8 @@ require("lazy").setup({
 		}, 
 		keys = {
 			{ "<leader>pv", function () require 'telescope.builtin'.find_files() end, mode = "n" },
-			{ "<leader>ps", function () require 'telescope.builtin'.live_grep() end, mode = "n" }
+			{ "<leader>pf", function () require 'telescope.builtin'.live_grep() end, mode = "n" },
+			{ "<leader>ps", function () require 'telescope.builtin'.lsp_workspace_symbols() end, mode = "n" }
 		}
 	},
 	{ "neovim/nvim-lspconfig" }
@@ -40,4 +41,13 @@ require("lazy").setup({
 -- lua initialization file
 vim.cmd [[colorscheme nightfly]]
 
-require("lua.swift")
+require("lua.swift") -- works but it's defined by where nvim was run for the first time. 
+
+vim.wo.number = true -- show line numbers 
+
+vim.keymap.set("n", "<leader>fS", function()
+        vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
+                ts.lsp_workspace_symbols({ query = query })
+        end)
+end, { desc = "LSP workspace symbols" })
+

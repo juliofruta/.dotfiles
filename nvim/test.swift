@@ -1,7 +1,8 @@
 import Foundation
 
-class : NSObject {
-    public istatic func helloWorld() {
+class A : NSObject {
+    var hello: String
+    public static func helloWorld() {
         print("hello world")
     }
 }
