@@ -38,13 +38,11 @@ require("lazy").setup({
 	{ "neovim/nvim-lspconfig" }
 })
 
--- lua initialization file
-vim.cmd [[colorscheme nightfly]]
-
+vim.cmd [[colorscheme nightfly]] -- init color scheme
 vim.wo.number = true -- show line numbers 
 vim.wo.relativenumber = true -- show relative line numbers
 
-require("julio.swift") 
+require("julio.swift") -- Add Swift LSP client
 
 -- Demo to search symbols (doesn't work)
 vim.keymap.set("n", "<leader>fS", function()
