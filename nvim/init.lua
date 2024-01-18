@@ -45,6 +45,7 @@ require("lua.swift") -- works but it's defined by where nvim was run for the fir
 
 vim.wo.number = true -- show line numbers 
 
+-- Demo to search symbols (doesn't work)
 vim.keymap.set("n", "<leader>fS", function()
         vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
                 ts.lsp_workspace_symbols({ query = query })
