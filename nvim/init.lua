@@ -42,11 +42,9 @@ require("lazy").setup({
 vim.cmd [[colorscheme nightfly]]
 
 vim.wo.number = true -- show line numbers 
-vim.wo.relativenumber = true
+vim.wo.relativenumber = true -- show relative line numbers
 
-local home = os.getenv( "HOME" )
-
-require("julio.swift") -- works but it's defined by where nvim was run for the first time. 
+require("julio.swift") 
 
 -- Demo to search symbols (doesn't work)
 vim.keymap.set("n", "<leader>fS", function()
