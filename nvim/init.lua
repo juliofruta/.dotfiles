@@ -34,18 +34,10 @@ require("lazy").setup({
 			{ "<leader>ps", function () require 'telescope.builtin'.live_grep() end, mode = "n" }
 		}
 	},
-	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
-				sourcekit = {
-					cmd = "$(xcrun --find sourcekit-lsp)",
-				},
-			},
-		}
-	}
+	{ "neovim/nvim-lspconfig" }
 })
 
 -- lua initialization file
 vim.cmd [[colorscheme nightfly]]
 
+require("lua.swift")
