@@ -1,11 +1,5 @@
 {
-"Profiles": [
-{
-  "Ansi 7 Color" : {
-    "Green Component" : 0.73333334922790527,
-    "Blue Component" : 0.73333334922790527,
-    "Red Component" : 0.73333334922790527
-  },
+  "Custom Directory" : "No",
   "Tags" : [
     "Dynamic"
   ],
@@ -14,20 +8,17 @@
     "Blue Component" : 1,
     "Red Component" : 0.3333333432674408
   },
-  "Ansi 8 Color" : {
-    "Green Component" : 0.3333333432674408,
-    "Blue Component" : 0.3333333432674408,
-    "Red Component" : 0.3333333432674408
-  },
-  "Ansi 9 Color" : {
-    "Green Component" : 0.3333333432674408,
-    "Blue Component" : 0.3333333432674408,
-    "Red Component" : 1
-  },
+  "Normal Font" : "MonacoNFM 12",
+  "Draw Powerline Glyphs" : true,
   "Bold Color" : {
     "Green Component" : 1,
     "Blue Component" : 1,
     "Red Component" : 1
+  },
+  "Ansi 4 Color" : {
+    "Green Component" : 0,
+    "Blue Component" : 0.73333334922790527,
+    "Red Component" : 0
   },
   "Ansi 5 Color" : {
     "Green Component" : 0,
@@ -70,7 +61,7 @@
   "Command" : "",
   "Custom Window Title" : "🦄",
   "Description" : "Default",
-  "Dynamic Profile Filename" : "\/Users\/julio\/Library\/Application Support\/iTerm2\/DynamicProfiles\/Profiles.json",
+  "Dynamic Profile Filename" : "\/Users\/juliocesarguzmanvillanueva\/Library\/Application Support\/iTerm2\/DynamicProfiles\/Profiles.json",
   "Screen" : -1,
   "Selection Color" : {
     "Green Component" : 0.8353000283241272,
@@ -292,6 +283,7 @@
     "Blue Component" : 1,
     "Red Component" : 0.3333333432674408
   },
+  "Unicode Version" : 8,
   "Name" : "Default",
   "Cursor Text Color" : {
     "Green Component" : 1,
@@ -304,35 +296,43 @@
     "Blue Component" : 0.73333334922790527,
     "Red Component" : 0.73333334922790527
   },
-  "Transparency" : 0,
-  "Ansi 1 Color" : {
-    "Green Component" : 0,
-    "Blue Component" : 0,
-    "Red Component" : 0.73333334922790527
-  },
-  "Horizontal Spacing" : 1,
-  "Custom Directory" : "No",
-  "Ansi 4 Color" : {
-    "Green Component" : 0,
-    "Blue Component" : 0.73333334922790527,
-    "Red Component" : 0
-  },
   "Ansi 0 Color" : {
     "Green Component" : 0,
     "Blue Component" : 0,
     "Red Component" : 0
   },
   "Guid" : "64514CEF-CB55-41BE-99E2-213BBAE389BD",
+  "Transparency" : 0,
+  "Ansi 1 Color" : {
+    "Green Component" : 0,
+    "Blue Component" : 0,
+    "Red Component" : 0.73333334922790527
+  },
+  "Ansi 2 Color" : {
+    "Green Component" : 0.73333334922790527,
+    "Blue Component" : 0,
+    "Red Component" : 0
+  },
   "Ansi 3 Color" : {
     "Green Component" : 0.73333334922790527,
     "Blue Component" : 0,
     "Red Component" : 0.73333334922790527
   },
-  "Normal Font" : "Monaco 12",
-  "Ansi 2 Color" : {
+  "Horizontal Spacing" : 1,
+  "Ansi 7 Color" : {
     "Green Component" : 0.73333334922790527,
-    "Blue Component" : 0,
-    "Red Component" : 0
+    "Blue Component" : 0.73333334922790527,
+    "Red Component" : 0.73333334922790527
+  },
+  "Ansi 8 Color" : {
+    "Green Component" : 0.3333333432674408,
+    "Blue Component" : 0.3333333432674408,
+    "Red Component" : 0.3333333432674408
+  },
+  "Ansi 9 Color" : {
+    "Green Component" : 0.3333333432674408,
+    "Blue Component" : 0.3333333432674408,
+    "Red Component" : 1
   },
   "Right Option Key Sends" : 2,
   "Ansi 6 Color" : {
@@ -340,6 +340,4 @@
     "Blue Component" : 0.73333334922790527,
     "Red Component" : 0
   }
-}
-]
 }

@@ -202,12 +202,18 @@ function updateDotfiles {
     zsh <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 }
 
+function install_nerdfonts {
+    git clone https://github.com/Karmenzind/monaco-nerd-fonts /tmp/monaco-nerd-fonts
+    mv /tmp/monaco-nerd-fonts ~/Library/Fonts/monaco-nerd-fonts
+}
+
 # Run installation
 function run_install {
     installOhMyZshIfNeeded
     installZSHAutosuggestionsIfNeeded
     installSyntaxHighlighting
     linkConfigurationFiles
+    install_nerdfonts
 
     # macOS Support
     updateiTerm2DynamicProfiles
