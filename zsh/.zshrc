@@ -275,3 +275,4 @@ source $ZSH/oh-my-zsh.sh
 clear
 changePrompt
 aliasvim
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
