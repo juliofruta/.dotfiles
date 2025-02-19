@@ -24,8 +24,6 @@ run_install
 ## 📝 System Requirements
 
 - macOS Monterey 15.4
-- alpine linux (iSH)
-- ubuntu 20.04 64 bit (Github codespaces 4 cores)
 
 ## ⚒️ macOS features
 
@@ -35,10 +33,3 @@ run_install
 - Xcode behaviors
 - System wide keyboard shortcuts
 - Neovim configuration
-
-## ⚒️ Alpine linux features
-
-- vim and tmux configuration
-- Swift
-- Autocompletion and syntax hightlighting on your terminal
-
