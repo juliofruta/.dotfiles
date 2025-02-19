@@ -134,61 +134,11 @@ function installWorkCasksIfNeeded {
 
     brew_install tmux
     brew install neovim
-    brew install mosh
 }
 
 function brew_install() {
     if ! brew list $1 &>/dev/null; then
        brew install $1
-    fi
-}
-
-function installPersonalCasksIfNeeded {
-    
-    # Only install these if on personal computer.
-    if [[ ! "Julios-MacBook-Air.local" = "$(hostname -f)" ]]; then
-        echo "Work computer detected." # > /dev/null
-        return
-    fi
-
-    # Install Google Chrome
-    if [[ ! -d "/Applications/Google Chrome.app" ]]; then
-        brew install google-chrome
-    fi
-    
-    # Install WhatsApp
-    if [[ ! -d "/Applications/WhatsApp.app" ]]; then
-        brew install whatsapp
-    fi
-        
-    # Install Telegram
-    if [[ ! -d "/Applications/Telegram.app" ]]; then
-        brew install telegram
-    fi
-    
-    # Install Blender
-    if [[ ! -d "/Applications/Blender.app" ]]; then
-        brew install blender
-    fi
-
-    # Install Epic Games Launcher
-    if [[ ! -d "/Applications/Epic Games Launcher.app" ]]; then
-        brew install epic-games
-    fi
-
-    # Install Steam
-    if [[ ! -d "/Applications/Steam.app" ]]; then
-        brew install steam
-    fi
-
-    # Install Discord
-    if [[ ! -d "/Applications/Discord.app" ]]; then
-        brew install discord
-    fi
-    
-    # Install OBS
-    if [[ ! -d "/Applications/OBS.app" ]]; then
-        brew install --cask obs
     fi
 }
 
@@ -219,7 +169,6 @@ function run_install {
     updateiTerm2DynamicProfiles
     installBrewIfNeeded
     installWorkCasksIfNeeded
-    installPersonalCasksIfNeeded
     removeAllItemsFromDock
 }
 
