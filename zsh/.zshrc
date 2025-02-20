@@ -6,8 +6,7 @@ export PATH="$PATH:/opt/homebrew/opt/ruby/bin"
 export PATH="$PATH:$HOME/.gem/ruby/3.2.0/bin"
 source ~/.rvm/scripts/rvm # To fix RVM is not a function error
 
-
-# Takes all the PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed. 
+# Takes all the PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed.
 # $1 - Github org
 # $2 - Github repo
 # $3 - CommitA
