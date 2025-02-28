@@ -5,7 +5,6 @@ export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/opt/homebrew/opt/ruby/bin"
 export PATH="$PATH:$HOME/.gem/ruby/3.2.0/bin"
-source ~/.rvm/scripts/rvm # To fix RVM is not a function error
 
 # Takes all the PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed.
 # $1 - Github org
@@ -139,10 +138,16 @@ function installWorkCasksIfNeeded {
     brew_install tmux
     brew install neovim
     
-    # install rvm
-    gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB && \curl -sSL https://get.rvm.io | bash -s stable --ruby
-    rvm install 3.2.2
-    rvm --default use 3.2.2
+    # Install rvm
+    if command -v rvm &> /dev/null; then
+        echo "RVM is installed"
+    else
+        echo "RVM is NOT installed"
+        source ~/.rvm/scripts/rvm # To fix RVM is not a function error
+        gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB && \curl -sSL https://get.rvm.io | bash -s stable --ruby
+        rvm install 3.2.2
+        rvm --default use 3.2.2
+    fi
 }
 
 function brew_install() {
