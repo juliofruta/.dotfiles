@@ -2,6 +2,7 @@
 export PATH="$PATH:$HOME/.rvm/bin"
 export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$PATH:$HOME/.rvm/gems/ruby-3.2.2/bin"
 export PATH="$PATH:/opt/homebrew/opt/ruby/bin"
 export PATH="$PATH:$HOME/.gem/ruby/3.2.0/bin"
 source ~/.rvm/scripts/rvm # To fix RVM is not a function error
