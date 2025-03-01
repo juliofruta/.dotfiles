@@ -5,6 +5,8 @@ export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/opt/homebrew/opt/ruby/bin"
 export PATH="$PATH:$HOME/.gem/ruby/3.2.0/bin"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 # Takes all the PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed.
 # $1 - Github org
@@ -238,4 +240,3 @@ source $ZSH/oh-my-zsh.sh
 clear
 changePrompt
 aliasvim
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
