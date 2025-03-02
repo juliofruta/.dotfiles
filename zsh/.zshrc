@@ -230,6 +230,40 @@ function mountFiles {
     mount -t ios website /mnt
 }
 
+fix_ruby() {
+  echo "🔍 Checking Ruby installation..."
+  if ! command -v ruby &> /dev/null; then
+    echo "❌ Ruby not found. Proceeding with reinstallation..."
+  else
+    echo "✅ Ruby is installed: $(ruby -v)"
+    return
+  fi
+
+  echo "🧹 Removing any leftover RVM installation..."
+  if command -v rvm &> /dev/null; then
+    rvm implode
+    rm -rf ~/.rvm
+    echo "✅ RVM removed."
+  else
+    echo "✅ RVM is not installed."
+  fi
+
+  echo "📥 Installing rbenv for Ruby version management..."
+  if ! command -v rbenv &> /dev/null; then
+    brew install rbenv
+    rbenv init
+    echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+    source ~/.zshrc
+  fi
+
+  echo "🔄 Installing Ruby 3.2.2 using rbenv..."
+  rbenv install 3.2.2
+  rbenv global 3.2.2
+
+  echo "✅ Ruby installation completed. Version: $(ruby -v)"
+}
+
+
 plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
