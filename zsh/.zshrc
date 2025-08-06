@@ -206,7 +206,7 @@ function changePrompt {
  
     # Set up the prompt (with git branch name)
     setopt PROMPT_SUBST
-    export PS1='\[🧠\] ➜ %1d ${vcs_info_msg_0_} \$ '
+    export PS1='%{🧠%} ➜ %1d ${vcs_info_msg_0_} \$ '
 }
 
 function linkConfigurationFiles {
