@@ -196,7 +196,8 @@ function removeAllItemsFromDock {
 function aliasvim {
     alias vim="nvim"
 }
-function changePrompt { 
+
+function changePrompt {
     # Load version control information
     autoload -Uz vcs_info
     precmd() { vcs_info }
@@ -226,11 +227,11 @@ function openiTermBehavior {
 }
 
 function mountFiles {
-    # mounts delected foldes into /mnt
+    # mounts detected folder into /mnt
     mount -t ios website /mnt
 }
 
-fix_ruby() {
+function fix_ruby() {
   echo "🔍 Checking Ruby installation..."
   if ! command -v ruby &> /dev/null; then
     echo "❌ Ruby not found. Proceeding with reinstallation..."
@@ -263,6 +264,53 @@ fix_ruby() {
   echo "✅ Ruby installation completed. Version: $(ruby -v)"
 }
 
+function loadVimMotions {
+    # Enable vi keybindings
+    bindkey -v
+    export KEYTIMEOUT=1
+
+    # Make ESC go to normal mode immediately
+    bindkey -M viins 'jj' vi-cmd-mode
+
+    # Enable visual mode
+    autoload -Uz select-quoted select-bracketed
+    zle -N select-quoted
+    zle -N select-bracketed
+
+    # Bind v in normal mode to start visual mode
+    bindkey -M vicmd 'v' visual-mode
+
+    # Visual mode keymap (selection + movement)
+    bindkey -M visual 'y' vi-yank
+    bindkey -M visual 'd' vi-delete
+    bindkey -M visual 'w' vi-forward-word
+    bindkey -M visual 'b' vi-backward-word
+    bindkey -M visual 'e' vi-forward-word-end
+    bindkey -M visual '^' vi-beginning-of-line
+    bindkey -M visual '$' vi-end-of-line
+
+    # Allow selecting quoted/bracketed text
+    for m in visual vicmd; do
+        bindkey -M $m '"' select-quoted
+        bindkey -M $m "'" select-quoted
+        bindkey -M $m '(' select-bracketed
+        bindkey -M $m ')' select-bracketed
+        bindkey -M $m '[' select-bracketed
+        bindkey -M $m ']' select-bracketed
+        bindkey -M $m '{' select-bracketed
+        bindkey -M $m '}' select-bracketed
+    done
+}
+
+function attachtmuxsession {
+# Auto tmux attach or create
+if command -v tmux &>/dev/null; then
+  # No estás ya en tmux y estás en una terminal interactiva
+  if [[ -z "$TMUX" ]] && [[ -n "$PS1" ]]; then
+    tmux attach -t default || tmux new -s default
+  fi
+fi
+}
 
 plugins=(
     zsh-autosuggestions
@@ -271,6 +319,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+loadVimMotions
 clear
 changePrompt
 aliasvim
+attachtmuxsession
