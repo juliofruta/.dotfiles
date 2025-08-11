@@ -139,7 +139,8 @@ function installWorkCasksIfNeeded {
 
     brew_install tmux
     brew install neovim
-    
+    brew_install gemini-cli
+
     # Install rvm
     if command -v rvm &> /dev/null; then
         echo "RVM is installed"
