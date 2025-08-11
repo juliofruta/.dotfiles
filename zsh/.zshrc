@@ -304,13 +304,20 @@ function loadVimMotions {
 }
 
 function attachtmuxsession {
-# Auto tmux attach or create
-if command -v tmux &>/dev/null; then
-  # No estás ya en tmux y estás en una terminal interactiva
-  if [[ -z "$TMUX" ]] && [[ -n "$PS1" ]]; then
-    tmux attach -t default || tmux new -s default
-  fi
-fi
+    # Auto tmux attach or create
+    if command -v tmux &>/dev/null; then
+        # if not in tmux and in an interactive shell
+        if [[ -z "$TMUX" ]] && [[ -n "$PS1" ]]; then
+            # Check if a session named 'default' already exists
+            if ! tmux has-session -t default 2>/dev/null; then
+                # If it doesn't exist, create it with two windows
+                tmux new-session -d -s default -n 'caffeinate' 'caffeinate'
+                tmux new-window -t default: -n 'gemini' 'gemini'
+            fi
+            # Attach to the 'default' session
+            tmux attach -t default
+        fi
+    fi
 }
 
 plugins=(
