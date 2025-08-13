@@ -377,8 +377,12 @@ pr_to() {
   fi
   
   local base_branch="$1"
-  
-  gh pr create --base "$base_branch" --fill --push
+
+  # Push current branch (creates remote branch if it doesn't exist)
+  git push -f origin "$(git branch --show-current)"
+
+  # Create PR
+  gh pr create --base "$base_branch" --fill
 }
 
 plugins=(
