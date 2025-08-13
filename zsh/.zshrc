@@ -360,15 +360,26 @@ map() {
   # Iterate over the array of folders and execute the command.
   for folder in "${folders[@]}"; do
     if [ -d "$folder" ]; then
-      echo "Running command in $folder"
+      # echo "Running command in $folder"
       (cd "$folder" && eval "$command_to_run")
-      echo "" # Add a newline for better readability
+      # echo "" # Add a newline for better readability
     else
-      echo "Directory not found: $folder"
+      echo "directory not found: $folder"
     fi
   done
 }
 
+# pr_to: create and push PR to a given base branch
+pr_to() {
+  if [ -z "$1" ]; then
+    echo "Usage: pr_to <base-branch>"
+    return 1
+  fi
+  
+  local base_branch="$1"
+  
+  gh pr create --base "$base_branch" --fill --push
+}
 
 plugins=(
     zsh-autosuggestions
