@@ -227,6 +227,13 @@ function loadVimMotions {
     done
 }
 
+function keepAwake() {
+  while true; do
+    osascript -e 'tell application "System Events" to key code 56' >/dev/null 2>&1
+    sleep 120
+  done
+}
+
 function attachtmuxsession {
     # Auto tmux attach or create
     if command -v tmux &>/dev/null; then
@@ -236,6 +243,7 @@ function attachtmuxsession {
             if ! tmux has-session -t default 2>/dev/null; then
                 # If it doesn't exist, create it with two windows
                 tmux new-session -d -s default -n 'caffeinate' 'caffeinate -dimsu'
+                tmux new-window -t default: -n 'keep awake' 'keepAwake'
                 tmux new-window -t default: -n 'dotfiles-gemini' 'cd ~/.dotfiles && gemini'
                 tmux new-window -t default:
             fi
@@ -282,9 +290,3 @@ function updateDotfiles {
     zsh <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 }
 
-function keepAwake() {
-  while true; do
-    osascript -e 'tell application "System Events" to key code 56' >/dev/null 2>&1
-    sleep 120
-  done
-}
