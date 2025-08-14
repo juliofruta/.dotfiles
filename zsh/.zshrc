@@ -281,3 +281,10 @@ function updateDotfiles {
     rm -rf $HOME/.dotfiles
     zsh <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 }
+
+function keepAwake() {
+  while true; do
+    osascript -e 'tell application "System Events" to key code 56' >/dev/null 2>&1
+    sleep 120
+  done
+}
