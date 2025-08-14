@@ -265,7 +265,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 source_dotfiles_zshrcs
-source iterm.zsh
+source $(DOTFILES_PATH)/zsh/iterm.zsh
 loadVimMotions
 clear
 changePrompt
