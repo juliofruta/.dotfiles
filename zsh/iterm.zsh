@@ -1,7 +1,7 @@
 # @description Opens and positions iTerm at the current directory,
 # maintaining the current font size by using the default profile.
 # The window is centered and sized to 800x600 pixels.
-function itermhere() {
+function oxxo() {
     # Get the current directory and quote it for safe shell execution
     local quoted_dir=$(printf "%q" "$(pwd)")
 
@@ -20,9 +20,9 @@ function itermhere() {
                 set screen_width to item 3 of screen_resolution
                 set screen_height to item 4 of screen_resolution
             end tell
-            set window_width to 800
-            set window_height to 600
-            set x_pos to (screen_width - window_width) / 2
+            set window_width to 600
+            set window_height to 400
+            set x_pos to (screen_width - window_width) / 2 + 500
             set y_pos to (screen_height - window_height) / 2
             set bounds to {x_pos, y_pos, x_pos + window_width, y_pos + window_height}
         end tell
