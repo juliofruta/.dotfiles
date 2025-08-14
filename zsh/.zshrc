@@ -184,12 +184,6 @@ function openiTermBehavior {
     open -a iTerm "${directory:2}" # this drops the first to chars
 }
 
-# @description Opens and positions iTerm at the current directory,
-# maintaining the current font size by using the default profile.
-# The window is centered and sized to 800x600 pixels.
-
-
-
 function mountFiles {
     # mounts detected folder into /mnt
     mount -t ios website /mnt
@@ -271,6 +265,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 source_dotfiles_zshrcs
+source iterm.zsh
 loadVimMotions
 clear
 changePrompt
