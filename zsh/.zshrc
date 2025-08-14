@@ -269,7 +269,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-source_dotfiles_zshrcs
+#source_dotfiles_zshrcs
 loadVimMotions
 clear
 changePrompt
