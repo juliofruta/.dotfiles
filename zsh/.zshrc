@@ -235,8 +235,9 @@ function attachtmuxsession {
             # Check if a session named 'default' already exists
             if ! tmux has-session -t default 2>/dev/null; then
                 # If it doesn't exist, create it with two windows
-                tmux new-session -d -s default -n 'caffeinate' 'caffeinate'
-                tmux new-window -t default: -n 'gemini' 'gemini'
+                tmux new-session -d -s default -n 'caffeinate' 'caffeinate -dimsu'
+                tmux new-window -t default: -n 'dotfiles-gemini' 'cd ~/.dotfiles && gemini'
+                tmux new-window -t default:
             fi
             # Attach to the 'default' session
             tmux attach -t default
