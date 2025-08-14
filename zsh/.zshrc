@@ -122,16 +122,6 @@ function brew_install() {
     fi
 }
 
-function resetDotfiles {
-    rm -rf $HOME/.dotfiles
-    wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer
-}
-
-function updateDotfiles {
-    rm -rf $HOME/.dotfiles
-    zsh <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
-}
-
 function install_nerdfonts {
     git clone https://github.com/Karmenzind/monaco-nerd-fonts /tmp/monaco-nerd-fonts
     mv /tmp/monaco-nerd-fonts ~/Library/Fonts/monaco-nerd-fonts
@@ -279,3 +269,13 @@ clear
 changePrompt
 aliasvim
 attachtmuxsession
+
+function resetDotfiles {
+    rm -rf $HOME/.dotfiles
+    wget https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer; chmod +x installer; ./installer
+}
+
+function updateDotfiles {
+    rm -rf $HOME/.dotfiles
+    zsh <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
+}
