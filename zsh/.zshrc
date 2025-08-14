@@ -255,6 +255,7 @@ function attachtmuxsession {
 
 # source other .zshrc files in folders that have the prefix "dotfiles-"
 function source_dotfiles_zshrcs() {
+  cd $HOME
   echo "🧠 sourcing other .dotfiles"
   for dir in $(ls -a | grep -E '^\.dotfiles-[^/]+$'); do
     echo "$dir"
