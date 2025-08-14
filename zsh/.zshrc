@@ -8,39 +8,6 @@ export PATH="$PATH:$HOME/.gem/ruby/3.2.0/bin"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
-# Takes all the PR titles between commitA and commitB and prints them on the stdout requires github cli to be installed.
-# $1 - Github org
-# $2 - Github repo
-# $3 - CommitA
-# $4 - CommitB
-function prtitles { 
-    git log --oneline $3...$4 | ggrep -oP '#\K[0-9]*' | xargs -I _ sh -c "gh pr view _ --repo $1/$2 | head -n 1" 
-}
-
-# Review a PR -- consider that this will get rid of all your current changes. and stash them.
-function review {
-    git add .; git stash; git add .; git reset --hard; git checkout $1; git pull; git checkout main; git pull; git checkout -b review; git merge $1; git reset --soft origin/main;
-}
-
-# Cleans the development branch positioning yourself in the develeopment branch
-function reviewClean {
-    git add .; git reset --hard; git checkout main; git branch -D review;
-}
-
-# code-freeze release/version development
-function codeFreeze {
-    git add .;
-    git reset --hard; 
-    git checkout release-candidate; 
-    git checkout -b $1
-    git merge -X theirs $2 --no-commit;
-    git diff --no-color $1 $2 | git apply;
-    git add .;
-    git merge --continue;
-    git diff $1 $2;
-    git diff $2 $1;
-}
-
 # Install Oh my zsh!
 function installOhMyZshIfNeeded {
     if [ ! -d "$HOME/.oh-my-zsh" ] 
@@ -79,7 +46,6 @@ function installSyntaxHighlighting {
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     fi
 }
-
 
 function installBrewIfNeeded {
     which -s brew
@@ -230,39 +196,6 @@ function openiTermBehavior {
 function mountFiles {
     # mounts detected folder into /mnt
     mount -t ios website /mnt
-}
-
-function fix_ruby() {
-  echo "🔍 Checking Ruby installation..."
-  if ! command -v ruby &> /dev/null; then
-    echo "❌ Ruby not found. Proceeding with reinstallation..."
-  else
-    echo "✅ Ruby is installed: $(ruby -v)"
-    return
-  fi
-
-  echo "🧹 Removing any leftover RVM installation..."
-  if command -v rvm &> /dev/null; then
-    rvm implode
-    rm -rf ~/.rvm
-    echo "✅ RVM removed."
-  else
-    echo "✅ RVM is not installed."
-  fi
-
-  echo "📥 Installing rbenv for Ruby version management..."
-  if ! command -v rbenv &> /dev/null; then
-    brew install rbenv
-    rbenv init
-    echo 'eval "$(rbenv init -)"' >> ~/.zshrc
-    source ~/.zshrc
-  fi
-
-  echo "🔄 Installing Ruby 3.2.2 using rbenv..."
-  rbenv install 3.2.2
-  rbenv global 3.2.2
-
-  echo "✅ Ruby installation completed. Version: $(ruby -v)"
 }
 
 function loadVimMotions {
