@@ -14,9 +14,6 @@ function installOhMyZshIfNeeded {
     then
         echo "🤖 Installing Oh My Zsh!"
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-        rm -rf $HOME/.zshrc 
-        # The plugin is already in the zsh config.
-        ln -s $DOTFILES_PATH/zsh/.zshrc $HOME/.zshrc #Link zsh.
     fi
 }
 
@@ -182,6 +179,10 @@ function linkConfigurationFiles {
     ln -s -f $DOTFILES_PATH/vim/.vimrc $HOME/.vimrc #Link vim config
     ln -s -f $DOTFILES_PATH/ash/.profile $HOME/.profile #Link ash profile 
     ln -s -f $DOTFILES_PATH/nvim $HOME/.config/nvim #Link nvim folder
+
+    rm -rf $HOME/.zshrc
+    # The plugin is already in the zsh config.
+    ln -s $DOTFILES_PATH/zsh/.zshrc $HOME/.zshrc # link zshrc
 }
 
 function srcroot {
