@@ -253,6 +253,15 @@ function attachtmuxsession {
     fi
 }
 
+# source other .zshrc files in folders that have the prefix "dotfiles-"
+function source_dotfiles_zshrcs() {
+  for dir in $(find ~/ -type d -name ".dotfiles-*"); do
+    for zshrc in $(find "$dir" -type f -name ".zshrc"); do
+      source "$zshrc"
+    done
+  done
+}
+
 plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -260,6 +269,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+source_dotfiles_zshrcs
 loadVimMotions
 clear
 changePrompt
