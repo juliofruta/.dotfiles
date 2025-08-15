@@ -103,6 +103,7 @@ function installWorkCasksIfNeeded {
     brew_install tmux
     brew install neovim
     brew_install gemini-cli
+    brew_install ghostty
 
     # Install rvm
     if command -v rvm &> /dev/null; then
@@ -270,9 +271,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
+source $DOTFILES_PATH/zsh/iterm.zsh
+source $DOTFILES_PATH/zsh/pinterest-downloader.zsh
 source_dotfiles_zshrcs
-source $(DOTFILES_PATH)/zsh/iterm.zsh
 loadVimMotions
 clear
 changePrompt
@@ -288,4 +289,3 @@ function updateDotfiles {
     rm -rf $HOME/.dotfiles
     zsh <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 }
-
