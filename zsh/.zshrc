@@ -104,6 +104,7 @@ function installWorkCasksIfNeeded {
     brew install neovim
     brew_install gemini-cli
     brew_install ghostty
+    brew_install mosh
 
     # Install rvm
     if command -v rvm &> /dev/null; then
