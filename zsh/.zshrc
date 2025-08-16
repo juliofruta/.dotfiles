@@ -273,14 +273,13 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES_PATH/zsh/iterm.zsh
-source $DOTFILES_PATH/zsh/pinterest-downloader.zsh
 source_dotfiles_zshrcs
 loadVimMotions
 clear
 changePrompt
 aliasvim
 attachtmuxsession
+mosh-server
 
 function resetDotfiles {
     rm -rf $HOME/.dotfiles
