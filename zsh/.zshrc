@@ -290,3 +290,6 @@ function updateDotfiles {
     rm -rf $HOME/.dotfiles
     zsh <(curl -s https://raw.githubusercontent.com/juiiocesar/.dotfiles/main/installer)
 }
+
+# Added by Antigravity
+export PATH="/Users/juliocesarguzmanvillanueva/.antigravity/antigravity/bin:$PATH"
