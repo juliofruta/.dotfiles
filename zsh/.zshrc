@@ -113,6 +113,7 @@ function installWorkCasksIfNeeded {
     # Install claude-cli
     curl -fsSL https://claude.ai/install.sh | bash
     export PATH="$HOME/.claude/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
 
     # Install rvm
     if command -v rvm &> /dev/null; then
