@@ -100,10 +100,19 @@ function installWorkCasksIfNeeded {
        brew install --cask docker
     fi
 
+    # Install claude
+    if [[ ! -d "/Applications/Claude.app" ]]; then 
+       brew install --cask claude
+    fi
+    
     brew_install tmux
     brew install neovim
     brew_install gemini-cli
     brew_install ghostty
+    
+    # Install claude-cli
+    curl -fsSL https://claude.ai/install.sh | bash
+    export PATH="$HOME/.claude/bin:$PATH"
 
     # Install rvm
     if command -v rvm &> /dev/null; then
