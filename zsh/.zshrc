@@ -7,6 +7,7 @@ export PATH="$PATH:/opt/homebrew/opt/ruby/bin"
 export PATH="$PATH:$HOME/.gem/ruby/3.2.0/bin"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="$PATH:/usr/local/bin"
 
 # Install Oh my zsh!
 function installOhMyZshIfNeeded {
