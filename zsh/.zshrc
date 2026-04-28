@@ -1,3 +1,4 @@
+export PATH="$PATH:$HOME/.local/bin"
 # https://stackoverflow.com/questions/35098490/how-do-i-set-path this is to use RVM from bin and not the default one.
 export PATH="$PATH:$HOME/.rvm/gems/ruby-3.2.2/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -140,6 +141,18 @@ function install_nerdfonts {
     mv /tmp/monaco-nerd-fonts ~/Library/Fonts/monaco-nerd-fonts
 }
 
+function setup_claude_alias() {
+    # Use 'which' to find the full path of the 'claude' executable.
+    local claude_path
+    claude_path=$(which claude)
+
+    # Check if 'which' found an executable file.
+    if [[ -x "$claude_path" ]]; then
+        # Create an alias named 'claude' pointing to the found path.
+        alias claude="'$claude_path'"
+    fi
+}
+
 # Run installation
 function run_install {
     installOhMyZshIfNeeded
@@ -153,6 +166,7 @@ function run_install {
     installBrewIfNeeded
     installWorkCasksIfNeeded
     removeAllItemsFromDock
+    setup_claude_alias
 }
 
 function removeAllItemsFromDock {
