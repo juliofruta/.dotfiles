@@ -316,3 +316,11 @@ function updateDotfiles {
 
 # Added by Antigravity
 export PATH="/Users/juliocesarguzmanvillanueva/.antigravity/antigravity/bin:$PATH"
+
+# Disable press-and-hold for keys in macOS to remove accent suggestions.
+disable_press_and_hold() {
+  defaults write -g ApplePressAndHoldEnabled -bool false
+}
+
+# Run on startup
+disable_press_and_hold
