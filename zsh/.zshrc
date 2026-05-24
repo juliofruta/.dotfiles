@@ -109,7 +109,7 @@ function installWorkCasksIfNeeded {
     
     brew_install tmux
     brew install neovim
-    brew_install gemini-cli
+    brew_install antigravity-cli
     brew_install ghostty
     
     # Install claude-cli
@@ -268,10 +268,16 @@ function attachtmuxsession {
         if [[ -z "$TMUX" ]] && [[ -n "$PS1" ]]; then
             # Check if a session named 'default' already exists
             if ! tmux has-session -t default 2>/dev/null; then
-                # If it doesn't exist, create it with two windows
+                # If it doesn't exist, create it with caffeinate and the agent windows
                 tmux new-session -d -s default -n 'caffeinate' 'caffeinate -dimsu'
-                tmux new-window -t default: -n 'dotfiles-gemini' 'cd ~/.dotfiles && gemini'
-                tmux new-window -t default:
+                tmux new-window -t default: -c ~/julio -n 'antigravity' 'agy --dangerously-skip-permissions ~/julio'
+                tmux split-window -h -t default:antigravity -c ~/julio
+                tmux new-window -t default: -c ~/julio -n 'claude' 'claude --dangerously-skip-permissions ~/julio'
+                tmux split-window -h -t default:claude -c ~/julio
+                tmux new-window -t default: -c ~/.dotfiles -n 'antigravity-dotfiles' 'agy --dangerously-skip-permissions ~/.dotfiles'
+                tmux split-window -h -t default:antigravity-dotfiles -c ~/.dotfiles
+                tmux new-window -t default: -c ~/.dotfiles -n 'claude-dotfiles' 'claude --dangerously-skip-permissions ~/.dotfiles'
+                tmux split-window -h -t default:claude-dotfiles -c ~/.dotfiles
             fi
             # Attach to the 'default' session
             tmux attach -t default
@@ -324,3 +330,7 @@ disable_press_and_hold() {
 
 # Run on startup
 disable_press_and_hold
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/juliocesarguzmanvillanueva/.local/bin:$PATH"
