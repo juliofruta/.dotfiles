@@ -272,12 +272,8 @@ function attachtmuxsession {
                 tmux new-session -d -s default -n 'caffeinate' 'caffeinate -dimsu'
                 tmux new-window -t default: -c ~/julio -n 'antigravity' 'agy --dangerously-skip-permissions ~/julio'
                 tmux split-window -h -t default:antigravity -c ~/julio
-                tmux new-window -t default: -c ~/julio -n 'claude' 'claude --dangerously-skip-permissions ~/julio'
-                tmux split-window -h -t default:claude -c ~/julio
                 tmux new-window -t default: -c ~/.dotfiles -n 'antigravity-dotfiles' 'agy --dangerously-skip-permissions ~/.dotfiles'
                 tmux split-window -h -t default:antigravity-dotfiles -c ~/.dotfiles
-                tmux new-window -t default: -c ~/.dotfiles -n 'claude-dotfiles' 'claude --dangerously-skip-permissions ~/.dotfiles'
-                tmux split-window -h -t default:claude-dotfiles -c ~/.dotfiles
             fi
             # Attach to the 'default' session
             tmux attach -t default
