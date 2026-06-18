@@ -274,6 +274,8 @@ function attachtmuxsession {
                 tmux split-window -h -t default:antigravity -c ~/julio
                 tmux new-window -t default: -c ~/.dotfiles -n 'antigravity-dotfiles' 'agy --dangerously-skip-permissions ~/.dotfiles'
                 tmux split-window -h -t default:antigravity-dotfiles -c ~/.dotfiles
+                tmux new-window -t default: -c ~/quiniela -n 'quiniela' 'agy --dangerously-skip-permissions ~/quiniela'
+                tmux split-window -h -t default:quiniela -c ~/quiniela
             fi
             # Attach to the 'default' session
             tmux attach -t default
