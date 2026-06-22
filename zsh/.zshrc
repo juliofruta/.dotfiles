@@ -82,11 +82,6 @@ function installWorkCasksIfNeeded {
         brew install alfred
     fi
 
-    # Install Rectangle
-    if [[ ! -d "/Applications/Rectangle.app" ]]; then
-        brew install --cask rectangle
-    fi
-
     # Install Maccy
     if [[ ! -d "/Applications/Maccy.app" ]]; then 
         brew install --cask maccy
@@ -107,6 +102,12 @@ function installWorkCasksIfNeeded {
        brew install --cask claude
     fi
     
+    # Install AeroSpace
+    # https://github.com/nikitabobko/AeroSpace
+    if [[ ! -d "/Applications/AeroSpace.app" ]]; then
+        brew install --cask nikitabobko/tap/aerospace
+    fi
+
     brew_install tmux
     brew install neovim
     brew_install antigravity-cli
@@ -196,6 +197,7 @@ function linkConfigurationFiles {
     ln -s -f $DOTFILES_PATH/vim/.vimrc $HOME/.vimrc #Link vim config
     ln -s -f $DOTFILES_PATH/ash/.profile $HOME/.profile #Link ash profile 
     ln -s -f $DOTFILES_PATH/nvim $HOME/.config/nvim #Link nvim folder
+    ln -s -f $DOTFILES_PATH/aerospace/aerospace.toml $HOME/.aerospace.toml #Link AeroSpace config
 
     rm -rf $HOME/.zshrc
     # The plugin is already in the zsh config.
