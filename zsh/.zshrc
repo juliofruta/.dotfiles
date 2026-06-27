@@ -112,6 +112,7 @@ function installWorkCasksIfNeeded {
     brew install neovim
     brew_install antigravity-cli
     brew_install ghostty
+    brew_install mactop
     
     # Install claude-cli
     curl -fsSL https://claude.ai/install.sh | bash
